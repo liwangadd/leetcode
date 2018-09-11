@@ -1,43 +1,35 @@
 import java.util.*;
 
 public class Test {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        String line;
-        line = sc.nextLine();
-        String[] points = line.split(",");
-        int testX = Integer.valueOf(points[0]);
-        int testY = Integer.valueOf(points[1]);
-        List<Integer> verx = new ArrayList<Integer>();
-        List<Integer> very = new ArrayList<Integer>();
-
-        line = sc.nextLine();
-        points = line.split(",");
-        for (int i = 0; i < points.length; i += 2) {
-            verx.add(Integer.valueOf(points[i]));
-            very.add(Integer.valueOf(points[i + 1]));
+    static class Node{
+        int a, b, c;
+        public Node(int a, int b, int c){
+            this.a=a;
+            this.b=b;
+            this.c=c;
         }
+
     }
 
-    private static int numberOfArithmeticSlices(int[] A) {
-        if (A == null || A.length < 3) return 0;
-        Map<Integer, Integer>[] map = new Map[A.length];
-        int ans = 0;
-        for (int i = 0; i < A.length; i++) {
-            map[i] = new HashMap<>();
-            for (int j = 0; j < i; j++) {
-                if (Math.abs((long) A[i] - A[j]) > Integer.MAX_VALUE) {
-                    continue;
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        List<Node> nodes = new ArrayList<>();
+        for(int i=0;i<num;++i){
+            int a=scanner.nextInt(), b = scanner.nextInt(), c=scanner.nextInt();
+            Node node = new Node(a, b,c);
+            nodes.add(node);
+        }
+        int count = 0;
+        for(int i=0, len=nodes.size();i<len;++i){
+            for(int j=0;j<len;++j){
+                if(nodes.get(i).a>nodes.get(j).a&&nodes.get(i).b>nodes.get(j).b&&nodes.get(i).c>nodes.get(j).c){
+                    ++count;
+                    break;
                 }
-                int d = A[i] - A[j];
-                int map_i_d = map[i].getOrDefault(d, 0);
-                int map_j_d = map[j].getOrDefault(d, 0);
-                map_i_d += map_j_d + 1;
-                map[i].put(d, map_i_d);
-                ans += map_j_d;
             }
         }
-        return ans;
+        System.out.println(count);
     }
 }

@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Test {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt(), b = sc.nextInt();
@@ -41,6 +42,7 @@ public class Test {
             }
         }
     }
+
 
     public static String circleDigits(int dividend, int divisor) {
         List<Integer> quotientList = new ArrayList<Integer>();//store a/b

@@ -9,7 +9,7 @@ public class T16 {
             int start = i + 1, end = nums.length - 1;
             while (start < end) {
                 int sum = nums[i] + nums[start] + nums[end];
-                if(sum==target) return target;
+                if (sum == target) return target;
                 if (Math.abs(target - sum) < Math.abs(target - bestSum)) {
                     bestSum = sum;
                 }
@@ -25,7 +25,7 @@ public class T16 {
     }
 
     public static void main(String[] args) {
-        System.out.println(threeSumClosest(new int[]{0,1,2}, 0));
+        System.out.println(threeSumClosest(new int[]{0, 1, 2}, 0));
     }
 
 }

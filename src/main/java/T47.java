@@ -8,6 +8,7 @@ import java.util.Set;
 public class T47 {
 
     public List<List<Integer>> permuteUnique(int[] nums) {
+
         List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0) return res;
         permuteUnique(res, nums, 0);

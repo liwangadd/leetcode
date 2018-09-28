@@ -36,7 +36,6 @@ public class T10 {
                     DP[i][j] = DP[i - 1][j - 1];
                 } else if (p.charAt(j - 1) == '*') {
                     DP[i][j] = DP[i][j - 2];
-                    //System.out.println(i);
                     if (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') {
                         DP[i][j] = DP[i][j] || DP[i - 1][j];
                     }

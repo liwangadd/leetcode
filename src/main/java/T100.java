@@ -14,23 +14,9 @@ public class T100 {
     }
 
     public static boolean isSameTree(TreeNode p, TreeNode q) {
-        Stack<TreeNode> pStack = new Stack<>();
-        Stack<TreeNode> qStack = new Stack<>();
-        pStack.push(p);
-        qStack.push(q);
-        while (!pStack.empty() && !qStack.empty()) {
-            while (p != null && q != null) {
-                if (p.val != q.val) return false;
-                else {
-                    p = p.left;
-                    q = q.left;
-                    pStack.push(p);
-                    qStack.push(q);
-                }
-            }
-            if (p != null || q != null) return false;
-        }
-        return pStack.empty() && qStack.empty();
+        return (p != null && q != null && q.val == p.val)
+                && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+                || p == null && q == null;
     }
 
 }

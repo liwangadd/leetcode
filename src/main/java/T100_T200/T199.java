@@ -1,20 +1,12 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class T199 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> res = new LinkedList<>();

@@ -1,16 +1,8 @@
 package T100_T200;
 
+import utils.ListNode;
+
 public class T141 {
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     public boolean hasCycle(ListNode head) {
         ListNode current1 = head, current2 = head;

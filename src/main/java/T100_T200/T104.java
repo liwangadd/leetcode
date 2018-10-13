@@ -1,16 +1,8 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 public class T104 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private static int maxDepth(TreeNode root) {
         if (root == null) return 0;

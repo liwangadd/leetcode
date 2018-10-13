@@ -1,15 +1,8 @@
 package T1_T100;
 
+import utils.ListNode;
+
 public class T24 {
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     private static ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null) return head;

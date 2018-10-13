@@ -1,18 +1,10 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 public class T110 {
 
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
-    private static boolean isBalanced(TreeNode root) {
+    private boolean isBalanced(TreeNode root) {
         if (root == null) return true;
         int length1 = maxDepth(root.left);
         int length2 = maxDepth(root.right);
@@ -20,7 +12,7 @@ public class T110 {
         return true;
     }
 
-    private static int maxDepth(TreeNode node) {
+    private int maxDepth(TreeNode node) {
         int length1 = 0, length2 = 0;
         if (node == null) return 0;
         length1 = maxDepth(node.left);

@@ -1,5 +1,7 @@
 package T1_T100;
 
+import utils.ListNode;
+
 public class T21 {
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -36,15 +38,6 @@ public class T21 {
         while (result != null) {
             System.out.println(result.val);
             result = result.next;
-        }
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
         }
     }
 

@@ -1,23 +1,15 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 public class T112 {
 
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
-    private static boolean hasPathSum(TreeNode root, int sum) {
+    private boolean hasPathSum(TreeNode root, int sum) {
         if (root == null) return false;
         return hasPathSum(root, 0, sum);
     }
 
-    private static boolean hasPathSum(TreeNode root, int current, int sum) {
+    private boolean hasPathSum(TreeNode root, int current, int sum) {
         if (root.left == null && root.right == null) {
             return current + root.val == sum;
         }

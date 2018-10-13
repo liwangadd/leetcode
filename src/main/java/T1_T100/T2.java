@@ -1,16 +1,8 @@
 package T1_T100;
 
+import utils.ListNode;
+
 public class T2 {
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int carry = 0;
         ListNode listNode = new ListNode(0);

@@ -1,18 +1,9 @@
 package T100_T200;
 
-import java.util.Stack;
+import utils.TreeNode;
 
 public class T101 {
 
-    static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private static boolean isSymmetric(TreeNode root) {
         return root == null || isSymmetric(root.left, root.right);

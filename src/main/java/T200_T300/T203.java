@@ -1,15 +1,8 @@
 package T200_T300;
 
+import utils.ListNode;
+
 public class T203 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode removeElements(ListNode head, int val) {
         ListNode last = new ListNode(-1);

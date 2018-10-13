@@ -1,17 +1,8 @@
 package T200_T300;
 
-import sun.awt.ScrollPaneWheelScroller;
+import utils.ListNode;
 
 public class T206 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;

@@ -1,16 +1,8 @@
 package T100_T200;
 
+import utils.ListNode;
+
 public class T160 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         ListNode currentA = headA, currentB = headB;

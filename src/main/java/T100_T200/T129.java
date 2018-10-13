@@ -1,19 +1,11 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class T129 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int sumNumbers(TreeNode root) {
         if (root == null) return 0;

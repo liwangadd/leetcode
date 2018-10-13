@@ -1,15 +1,8 @@
 package T100_T200;
 
-public class T111 {
-    class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+import utils.TreeNode;
 
-        TreeNode(int x) {
-            val = x;
-        }
-    }
+public class T111 {
 
     private static int minDepth(TreeNode root) {
         if (root == null) return 0;

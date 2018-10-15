@@ -1,15 +1,8 @@
 package T200_T300;
 
+import utils.ListNode;
+
 public class T234 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isPalindrome(ListNode head) {
         if (head == null) return false;

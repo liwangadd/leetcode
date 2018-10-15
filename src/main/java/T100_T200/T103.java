@@ -1,18 +1,10 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 import java.util.*;
 
 public class T103 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> res = new LinkedList<>();

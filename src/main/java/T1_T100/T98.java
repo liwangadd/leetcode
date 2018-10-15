@@ -1,19 +1,11 @@
 package T1_T100;
 
+import utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class T98 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public boolean isValidBST(TreeNode root) {
         List<Integer> list = new LinkedList<>();

@@ -1,16 +1,8 @@
 package T400_T500;
 
+import utils.TreeNode;
+
 public class T450 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     private int findReplacement(TreeNode parent, TreeNode node, boolean isLeft) {
         if (node.right == null) {

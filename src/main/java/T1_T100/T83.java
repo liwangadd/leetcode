@@ -1,16 +1,8 @@
 package T1_T100;
 
-import com.sun.deploy.panel.DeleteFilesDialog;
+import utils.ListNode;
 
 public class T83 {
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode deleteDuplicates(ListNode head) {
         ListNode current = head;

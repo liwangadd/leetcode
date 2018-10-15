@@ -1,19 +1,11 @@
 package T200_T300;
 
+import utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class T257 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static List<String> binaryTreePaths(TreeNode root) {
         List<String> res = new LinkedList<>();

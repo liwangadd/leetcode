@@ -1,21 +1,12 @@
 package T100_T200;
 
+import utils.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class T113 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new LinkedList<>();

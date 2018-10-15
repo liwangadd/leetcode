@@ -1,16 +1,8 @@
 package T200_T300;
 
+import utils.TreeNode;
+
 public class T236 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if(root == null || root.val == p.val || root.val == q.val){

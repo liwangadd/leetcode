@@ -1,16 +1,8 @@
 package T200_T300;
 
+import utils.TreeNode;
+
 public class T222 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int leftMost(TreeNode node) {
         int count = 0;

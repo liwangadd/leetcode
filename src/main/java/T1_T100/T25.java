@@ -1,15 +1,8 @@
 package T1_T100;
 
+import utils.ListNode;
+
 public class T25 {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static ListNode reverseKGroup(ListNode head, int k) {
         if (head == null) {

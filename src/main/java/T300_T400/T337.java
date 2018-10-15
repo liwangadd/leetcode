@@ -1,16 +1,8 @@
 package T300_T400;
 
+import utils.TreeNode;
+
 public class T337 {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int rob(TreeNode root) {
         if (root == null) return 0;

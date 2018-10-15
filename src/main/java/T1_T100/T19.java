@@ -1,17 +1,8 @@
 package T1_T100;
 
-import java.util.List;
+import utils.ListNode;
 
 public class T19 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if (head == null) return null;

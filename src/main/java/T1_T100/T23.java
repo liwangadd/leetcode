@@ -1,19 +1,12 @@
 package T1_T100;
 
+import utils.ListNode;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class T23 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public T23() {
     }

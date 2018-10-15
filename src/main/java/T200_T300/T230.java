@@ -1,19 +1,11 @@
 package T200_T300;
 
+import utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class T230 {
-
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public int kthSmallest(TreeNode root, int k) {
         List<Integer> list = new LinkedList<>();

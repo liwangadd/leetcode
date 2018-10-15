@@ -1,18 +1,11 @@
 package T200_T300;
 
+import utils.ListNode;
+
 public class T237 {
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public static void deleteNode(ListNode node) {
-        ListNode last=node;
+        ListNode last = node;
         while (node.next != null) {
             node.val = node.next.val;
             last = node;

@@ -1,15 +1,8 @@
 package T1_T100;
 
+import utils.ListNode;
+
 public class T86 {
-
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public ListNode partition(ListNode head, int x) {
         if (head == null) return null;

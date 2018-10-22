@@ -1,7 +1,5 @@
 package T200_T300;
 
-import com.sun.deploy.panel.JHighDPITable;
-
 public class T215 {
 
     public static int findKthLargest(int[] nums, int k) {

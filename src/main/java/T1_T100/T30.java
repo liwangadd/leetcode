@@ -14,6 +14,7 @@ public class T30 {
         int wordLength = words[0].length();
         int subLength = words.length * wordLength;
         if (s == null || s.length() == 0 || s.length() < subLength) return res;
+
         for (String word : words) {
             if (freqMapRoot.containsKey(word)) {
                 freqMapRoot.put(word, freqMapRoot.get(word) + 1);

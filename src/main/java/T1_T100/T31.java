@@ -1,8 +1,5 @@
 package T1_T100;
 
-import sun.security.util.Length;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class T31 {
@@ -25,14 +22,7 @@ public class T31 {
                     break;
                 }
             }
-            for (int i : nums) {
-                System.out.print(i);
-            }
-            System.out.println();
             Arrays.sort(nums, keyIndex, nums.length);
-            for (int i : nums) {
-                System.out.print(i);
-            }
         }
     }
 

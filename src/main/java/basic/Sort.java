@@ -111,7 +111,7 @@ public class Sort {
 
     private void mergeSort_sort(int[] numbers, int left, int right) {
         if (left < right) {
-            int mid = (left + right) / 2;
+            int mid = left+(right-left)/2;
             mergeSort_sort(numbers, left, mid);
             mergeSort_sort(numbers, mid + 1, right);
             mergeSort_merge(numbers, left, mid, right);

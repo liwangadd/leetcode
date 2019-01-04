@@ -1,6 +1,6 @@
 package leetcode.T100_T200;
 
-import leetcode.utils.TreeNode;
+import utils.TreeNode;
 
 public class T114 {
 

@@ -1,6 +1,6 @@
 package leetcode.T200_T300;
 
-import leetcode.utils.TreeNode;
+import utils.TreeNode;
 
 public class T226 {
 

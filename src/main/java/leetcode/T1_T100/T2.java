@@ -1,6 +1,6 @@
 package leetcode.T1_T100;
 
-import leetcode.utils.ListNode;
+import utils.ListNode;
 
 public class T2 {
     private static ListNode addTwoNumbers(ListNode l1, ListNode l2) {

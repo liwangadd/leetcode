@@ -1,6 +1,6 @@
 package leetcode.T1_T100;
 
-import leetcode.utils.TreeNode;
+import utils.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;

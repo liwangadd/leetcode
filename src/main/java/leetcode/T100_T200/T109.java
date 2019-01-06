@@ -1,7 +1,7 @@
 package leetcode.T100_T200;
 
-import leetcode.utils.ListNode;
-import leetcode.utils.TreeNode;
+import utils.ListNode;
+import utils.TreeNode;
 
 public class T109 {
 

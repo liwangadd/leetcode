@@ -1,6 +1,6 @@
 package leetcode.T200_T300;
 
-import leetcode.utils.TreeNode;
+import utils.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

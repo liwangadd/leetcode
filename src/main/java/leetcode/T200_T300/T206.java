@@ -1,6 +1,6 @@
 package leetcode.T200_T300;
 
-import leetcode.utils.ListNode;
+import utils.ListNode;
 
 public class T206 {
 

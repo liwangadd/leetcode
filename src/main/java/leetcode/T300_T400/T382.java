@@ -1,6 +1,7 @@
 package leetcode.T300_T400;
 
-import leetcode.utils.ListNode;
+
+import utils.ListNode;
 
 import java.util.Random;
 

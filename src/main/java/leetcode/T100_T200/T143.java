@@ -1,6 +1,6 @@
 package leetcode.T100_T200;
 
-import leetcode.utils.ListNode;
+import utils.ListNode;
 
 import java.util.Stack;
 

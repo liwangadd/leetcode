@@ -1,6 +1,6 @@
 package leetcode.T400_T500;
 
-import leetcode.utils.TreeNode;
+import utils.TreeNode;
 
 public class T437 {
 

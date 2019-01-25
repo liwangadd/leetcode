@@ -4,12 +4,10 @@ import utils.ListNode;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class T23 {
-
-    public T23() {
-    }
 
     public ListNode mergeKLists(ListNode[] lists) {
         List<Integer> array = new ArrayList<>();

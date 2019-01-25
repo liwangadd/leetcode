@@ -2,30 +2,24 @@ package leetcode.T1_T100;
 
 public class T7 {
 
-    private static int reverse(int x) {
-        boolean isNegative = false;
-        if (x < 0) {
-            isNegative = true;
-            x = -x;
-        }
-        long result = 0;
+    public int reverse(int x) {
+        int res = 0;
         while (x != 0) {
-            int temp = x % 10;
+            int pop = x % 10;
             x /= 10;
-            result = result * 10 + temp;
+            if (res > Integer.MAX_VALUE / 10 || (res == Integer.MAX_VALUE / 10 && pop > 7)) return 0;
+            if (res < Integer.MIN_VALUE / 10 || (res == Integer.MIN_VALUE / 10 && pop < -8)) return 0;
+            res = res * 10 + pop;
         }
-        if (isNegative) {
-            result = -result;
-        }
-        if(result>Integer.MAX_VALUE || result<Integer.MIN_VALUE) return 0;
-        return (int)result;
+        return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(reverse(123));
-        System.out.println(reverse(-123));
-        System.out.println(reverse(120));
-        System.out.println(reverse(1534236469));
+        T7 solution=new T7();
+        System.out.println(solution.reverse(123));
+        System.out.println(solution.reverse(-123));
+        System.out.println(solution.reverse(120));
+        System.out.println(solution.reverse(1534236469));
     }
 
 }

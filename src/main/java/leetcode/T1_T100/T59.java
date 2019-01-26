@@ -26,6 +26,7 @@ public class T59 {
         return res;
     }
 
+
     public static void main(String[] args) {
         int[][] res = generateMatrix(7);
         for (int[] row : res) {

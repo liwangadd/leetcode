@@ -12,9 +12,7 @@ public class T11 {
             } else {
                 --high;
             }
-            if (Math.min(height[low], height[high]) * (--width) > squre) {
-                squre = Math.min(height[low], height[high]) * width;
-            }
+            squre = Math.max(Math.min(height[low], height[high])*(--width), squre);
         }
         return squre;
     }

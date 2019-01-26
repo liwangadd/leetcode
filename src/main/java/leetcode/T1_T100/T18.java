@@ -27,7 +27,6 @@ public class T18 {
                         item.add(nums[a]);
                         item.add(nums[b]);
                         result.add(item);
-
                     }
                     a++;
                     while (nums[a] == nums[a - 1] && a < b) {

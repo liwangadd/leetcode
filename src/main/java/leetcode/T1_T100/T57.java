@@ -50,7 +50,7 @@ public class T57 {
                     } else {
                         res.add(interval);
                     }
-                } else if (interval.end >= newInterval.start) {
+                } else {
                     insertInterval.start = Math.min(interval.start, newInterval.start);
                     while (i < intervals.size() && intervals.get(i).start <= newInterval.end) {
                         insertInterval.end = Math.max(intervals.get(i).end, newInterval.end);

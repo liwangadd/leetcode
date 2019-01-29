@@ -10,7 +10,7 @@ public class T134 {
             tank += gas[i] - cost[i];
             if (tank < 0) {
                 tank = 0;
-                index = i+1;
+                index = i + 1;
             }
             total += gas[i] - cost[i];
         }

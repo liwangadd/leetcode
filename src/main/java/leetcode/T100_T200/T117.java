@@ -16,16 +16,32 @@ public class T117 {
 
     public void connect(TreeLinkNode root) {
         if (root == null) return;
-        Queue<TreeLinkNode> queue = new LinkedList<>();
-        queue.add(root);
-        int count = 1;
-        while (!queue.isEmpty()) {
-            TreeLinkNode preNode = queue.poll();
-            --count;
-            if (preNode.left != null) queue.add(preNode.left);
-            if (preNode.right != null) queue.add(preNode.right);
-            if (count > 0) preNode.next = queue.peek();
-            else count = queue.size();
+        TreeLinkNode pre = null, nextHead = null, cur = root;
+        while (cur != null) {
+            while (cur != null) {
+                if (cur.left != null) {
+                    if (pre == null) {
+                        pre = cur.left;
+                        nextHead = cur.left;
+                    } else {
+                        pre.next = cur.left;
+                        pre = pre.next;
+                    }
+                }
+                if (cur.right != null) {
+                    if (pre == null) {
+                        pre = cur.right;
+                        nextHead = cur.right;
+                    } else {
+                        pre.next = cur.right;
+                        pre = pre.next;
+                    }
+                }
+                cur = cur.next;
+            }
+            cur = nextHead;
+            pre = null;
+            nextHead = null;
         }
     }
 

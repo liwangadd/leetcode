@@ -11,7 +11,7 @@ public class T174 {
         for (int[] arr : dp) {
             Arrays.fill(arr, Integer.MAX_VALUE);
         }
-        dp[m - 1][n] = 1;
+        dp[m][n] = 1; // 营救皇后之后，还需要存活
         for (int i = m - 1; i >= 0; i--) {
             for (int j = n - 1; j >= 0; j--) {
                 int val = Math.min(dp[i + 1][j], dp[i][j + 1]) - dungeon[i][j];

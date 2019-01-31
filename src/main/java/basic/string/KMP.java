@@ -6,16 +6,13 @@ public class KMP {
         char[] strArr = str.toCharArray();
         int len = str.length();
         int[] next = new int[len];
-        int k = -1;
-        int j = 0;
+        int last = -1,i = 0;
         next[0] = -1;
-        while (j < len - 1) {
-            if (k == -1 || strArr[j] == strArr[k]) {
-                k++;
-                j++;
-                next[j] = k;
+        while (i < len - 1) {
+            if (last == -1 || strArr[i] == strArr[last]) {
+                next[++i] = ++last;
             } else {
-                k = next[k];
+                last = next[last];
             }
         }
         return next;

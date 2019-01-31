@@ -13,21 +13,17 @@ public class T199 {
         if (root == null) return res;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        int count = 1;
         while (!queue.isEmpty()) {
-            int currentCount = count;
-            count = 0;
-            while (currentCount-- > 0) {
+            int count = queue.size();
+            while (count-- > 0) {
                 TreeNode node = queue.poll();
                 if (node.left != null) {
                     queue.add(node.left);
-                    ++count;
                 }
                 if (node.right != null) {
                     queue.add(node.right);
-                    ++count;
                 }
-                if (currentCount == 0) res.add(node.val);
+                if (count == 0) res.add(node.val);
             }
         }
         return res;

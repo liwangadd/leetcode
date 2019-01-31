@@ -7,6 +7,7 @@ public class T260 {
         for (int num : nums) {
             diff ^= num;
         }
+        // 保留最低位的1
         diff &= -diff;
         int[] res = new int[2];
         for (int num : nums) {

@@ -13,7 +13,7 @@ public class T247 {
 
     public List<String> findStrobogrammatic(int n) {
         result = new ArrayList<>();
-        if (n == 0) return result;
+//        if (n == 0) return result;
         if ((n & 1) == 0) {
             helper(n, "");
         } else {
@@ -26,18 +26,17 @@ public class T247 {
 
     private void helper(int n, String str) {
         if (n == 0) {
-            if (!str.startsWith("0"))
             result.add(str);
             return;
         }
-        for (char[] pair : rotate) {
-            helper(n - 2, pair[0] + str + pair[1]);
+        for(int i=n==2?1:0;i<rotate.size();++i){
+            helper(n-2, rotate.get(i)[0]+str+rotate.get(i)[1]);
         }
     }
 
     public static void main(String[] args) {
-        T247 solution=new T247();
-        for (String s : solution.findStrobogrammatic(2)) {
+        T247 solution = new T247();
+        for (String s : solution.findStrobogrammatic(1)) {
             System.out.println(s);
         }
     }

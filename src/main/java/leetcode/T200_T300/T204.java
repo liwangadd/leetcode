@@ -10,6 +10,7 @@ public class T204 {
         Arrays.fill(flags, true);
         flags[2] = true;
         int i = 2;
+        // 结束位置
         int endPos = (int) Math.sqrt(n) + 1;
         while (i < endPos) {
             for (int j = 2; i * j < n; ++j) {

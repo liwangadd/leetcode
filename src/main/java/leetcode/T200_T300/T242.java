@@ -8,11 +8,11 @@ public class T242 {
         if (s.length() != t.length()) {
             return false;
         }
-        int[] flag1 = new int[256];
-        int[] flag2 = new int[256];
+        int[] flag1 = new int[26];
+        int[] flag2 = new int[26];
         for (int i = 0, len = s.length(); i < len; ++i) {
-            flag1[s.charAt(i)]++;
-            flag2[t.charAt(i)]++;
+            flag1[s.charAt(i) - 'a']++;
+            flag2[t.charAt(i) - 'a']++;
         }
         return Arrays.equals(flag1, flag2);
     }

@@ -25,7 +25,7 @@ public class T295 {
     }
 
     public double findMedian() {
-        if ((maxHeap.size() + minHeap.size()) % 2 == 0) {
+        if (((maxHeap.size() + minHeap.size()) & 1) == 0) {
             return (minHeap.peek() + maxHeap.peek()) / 2.0;
         } else {
             return minHeap.peek();

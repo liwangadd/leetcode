@@ -5,22 +5,36 @@ import java.util.List;
 
 public class T251 {
 
-    private Iterator<List<Integer>> rowIterator;
-    private Iterator<Integer> colIterator;
+    public class Vector2D implements Iterator<Integer> {
 
-    public T251(List<List<Integer>> vec2d) {
-        rowIterator = vec2d.iterator();
-    }
+        private Iterator<List<Integer>> rowIterator;
+        private Iterator<Integer> colIterator;
 
-    public int next() {
-        if (!hasNext()) return 0;
-        return colIterator.next();
-    }
-
-    public boolean hasNext() {
-        while ((colIterator == null || !colIterator.hasNext()) && rowIterator.hasNext()) {
-            colIterator = rowIterator.next().iterator();
+        public Vector2D(List<List<Integer>> vec2d) {
+            // Initialize your data structure here
+            rowIterator = vec2d.iterator();
         }
-        return colIterator != null && colIterator.hasNext();
+
+        @Override
+        public Integer next() {
+            // Write your code here
+            return colIterator.next();
+        }
+
+        @Override
+        public boolean hasNext() {
+            // Write your code here
+            while ((colIterator == null || !colIterator.hasNext()) && rowIterator.hasNext()) {
+                colIterator = rowIterator.next().iterator();
+            }
+            return colIterator != null && colIterator.hasNext();
+        }
+
+        @Override
+        public void remove() {
+            colIterator.remove();
+        }
     }
+
+
 }

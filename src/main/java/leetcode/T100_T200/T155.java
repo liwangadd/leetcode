@@ -1,47 +1,54 @@
 package leetcode.T100_T200;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Stack;
 
 public class T155 {
 
-    private List<Integer> stack;
-    private int min;
+    public static class MinStack {
 
-    public T155() {
-        stack = new LinkedList<>();
-        min = Integer.MAX_VALUE;
-    }
+        private Stack<Integer> minStack;
+        private Stack<Integer> stack;
 
-    public void push(int x) {
-        stack.add(x);
-        if (x < min) {
-            min = x;
+        /**
+         * initialize your data structure here.
+         */
+        public MinStack() {
+            minStack = new Stack<>();
+            stack = new Stack<>();
         }
-    }
 
-    public void pop() {
-        int removeItem = stack.remove(stack.size() - 1);
-        if (removeItem == min) {
-            min = Integer.MAX_VALUE;
-            for (Integer integer : stack) {
-                if (integer < min) {
-                    min = integer;
-                }
+        public void push(int x) {
+            stack.push(x);
+            if (!minStack.isEmpty() && x > minStack.peek()) {
+                minStack.push(minStack.peek());
+            } else {
+                minStack.push(x);
             }
         }
-    }
 
-    public int top() {
-        if (stack.size() > 1) {
-            return stack.get(stack.size() - 1);
-        } else {
-            return 0;
+        public void pop() {
+            stack.pop();
+            minStack.pop();
+        }
+
+        public int top() {
+            return stack.peek();
+        }
+
+        public int getMin() {
+            return minStack.peek();
         }
     }
 
-    public int getMin() {
-        return min;
+    public static void main(String[] args) {
+        MinStack minStack = new MinStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.getMin());
+        minStack.pop();
+        System.out.println(minStack.top());
+        System.out.println(minStack.getMin());
     }
 
 }

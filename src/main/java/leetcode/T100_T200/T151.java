@@ -3,6 +3,7 @@ package leetcode.T100_T200;
 public class T151 {
 
     public String reverseWords(String s) {
+        if (s == null || s.length() == 0) return s;
         s = s.trim();
         String[] words = s.split("\\s+");
         StringBuilder sb = new StringBuilder();

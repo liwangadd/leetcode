@@ -2,18 +2,6 @@ package leetcode.T100_T200;
 
 public class T189 {
 
-    public void rotate1(int[] nums, int k) {
-        int len = nums.length;
-        int[] newNums = new int[len];
-        for (int i = 0; i < len; ++i) {
-            int newPos = (i + k) % len;
-            newNums[newPos] = nums[i];
-        }
-        for (int i = 0; i < len; ++i) {
-            nums[i] = newNums[i];
-        }
-    }
-
     public void rotate(int[] nums, int k) {
         if (nums == null || nums.length == 0) return;
         reverse(nums, nums.length - k, nums.length - 1);

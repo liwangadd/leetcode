@@ -1,6 +1,5 @@
 package leetcode.T300_T400;
 
-
 import utils.ListNode;
 
 import java.util.Random;

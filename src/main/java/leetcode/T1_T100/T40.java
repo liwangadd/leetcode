@@ -10,7 +10,6 @@ public class T40 {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> res = new LinkedList<>();
         if (candidates == null || candidates.length == 0) return res;
-        boolean[] flag = new boolean[candidates.length];
         Arrays.sort(candidates);
         combinationSum2(candidates, target, 0, res, new LinkedList<>());
         return res;

@@ -9,7 +9,7 @@ public class T97 {
         boolean[][] dp = new boolean[s1.length() + 1][s2.length() + 1];
         dp[0][0] = true;
         for (int i = 1; i <= s1.length(); ++i) {
-            dp[i][0] = dp[i-1][0] & s1Array[i - 1] == s3Array[i - 1];
+            dp[i][0] = dp[i - 1][0] & s1Array[i - 1] == s3Array[i - 1];
         }
         for (int i = 1; i <= s2.length(); ++i) {
             dp[0][i] = dp[0][i - 1] & s2Array[i - 1] == s3Array[i - 1];

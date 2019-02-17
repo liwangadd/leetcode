@@ -5,9 +5,8 @@ public class T115 {
     public static int numDistinct(String s, String t) {
         int[][] dp = new int[s.length() + 1][t.length() + 1];
         dp[0][0]=1;
-        for (int i = 1; i <= s.length(); ++i) {
+        for (int i = 1; i <= s.length(); ++i)
             dp[i][0] = 1;
-        }
         for (int i = 1; i <= t.length(); ++i) dp[0][i] = 0;
 
         for (int i = 1; i <= s.length(); ++i) {

@@ -4,7 +4,7 @@ import utils.ListNode;
 
 public class T25 {
 
-    public static ListNode reverseKGroup(ListNode head, int k) {
+    public ListNode reverseKGroup(ListNode head, int k) {
         if (head == null) {
             return null;
         }
@@ -21,7 +21,7 @@ public class T25 {
         return dummy.next;
     }
 
-    private static ListNode reverseK(ListNode prev, int k) {
+    private ListNode reverseK(ListNode prev, int k) {
         ListNode n1 = prev.next;
 
         ListNode nk = prev;
@@ -49,17 +49,17 @@ public class T25 {
         return n1;
     }
 
-    public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
-        ListNode newHead = reverseKGroup(head, 4);
-        while (newHead != null) {
-            System.out.println(newHead.val);
-            newHead = newHead.next;
-        }
-    }
+//    public static void main(String[] args) {
+//        ListNode head = new ListNode(1);
+//        head.next = new ListNode(2);
+//        head.next.next = new ListNode(3);
+//        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
+//        ListNode newHead = reverseKGroup(head, 4);
+//        while (newHead != null) {
+//            System.out.println(newHead.val);
+//            newHead = newHead.next;
+//        }
+//    }
 
 }

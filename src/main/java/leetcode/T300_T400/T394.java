@@ -14,8 +14,6 @@ public class T394 {
         for (char c : sArr) {
             if (Character.isDigit(c)) {
                 numSb.append(c - '0');
-            } else if (Character.isDigit(c)) {
-                numStack.add(c - '0');
             } else if (c == ']') {
                 int count = numStack.pop();
                 char currentChar;

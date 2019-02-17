@@ -1,6 +1,6 @@
 package leetcode.T300_T400;
 
-public class t375 {
+public class T375 {
 
     public int getMoneyAmount(int n) {
         int[][] table = new int[n + 1][n + 1];

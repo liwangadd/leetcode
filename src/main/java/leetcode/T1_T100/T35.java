@@ -10,7 +10,7 @@ public class T35 {
             }
             ++insertPos;
         }
-        if (insertPos == nums.length) return nums.length;
+//        if (insertPos == nums.length) return nums.length;
         return insertPos;
     }
 

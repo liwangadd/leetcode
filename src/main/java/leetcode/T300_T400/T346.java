@@ -1,7 +1,5 @@
 package leetcode.T300_T400;
 
-import java.util.List;
-
 public class T346 {
 
     public class MovingAverage {

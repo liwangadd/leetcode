@@ -10,7 +10,7 @@ public class T188 {
         for (int i = 0; i < dp[0].length; ++i) dp[0][i] = 0;
         for (int i = 1; i <= k; ++i) {
             int tmpMax = dp[i - 1][0] - prices[0];
-            for (int j = 0; j < prices.length; ++j) {
+            for (int j = 1; j < prices.length; ++j) {
                 dp[i][j] = Math.max(dp[i][j - 1], tmpMax + prices[j]);
                 tmpMax = Math.max(tmpMax, dp[i - 1][j] - prices[j]);
             }

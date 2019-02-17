@@ -20,6 +20,7 @@ public class T341 {
         public List<NestedInteger> getList();
     }
 
+
     public class NestedIterator implements Iterator<Integer> {
 
         private List<NestedInteger> nestedList;

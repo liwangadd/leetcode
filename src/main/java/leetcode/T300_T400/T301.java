@@ -16,7 +16,9 @@ public class T301 {
         for (int i = last_i; i < s.length(); ++i) {
             if (s.charAt(i) == pair[0]) ++count;
             else if (s.charAt(i) == pair[1]) --count;
+
             if (count >= 0) continue;
+
             for (int j = last_j; j <= i; ++j) {
                 if (s.charAt(j) == pair[1] && (j == last_j || s.charAt(j - 1) != pair[1])) {
                     removeInvalidParentheses(s.substring(0, j) + s.substring(j + 1), res, i, j, pair);

@@ -9,12 +9,13 @@ public class T383 {
         }
         for (int i = 0; i < ransomNote.length(); ++i) {
             --flags[ransomNote.charAt(i) - 'a'];
+            if(flags[ransomNote.charAt(i) - 'a'] < 0) return false;
         }
-        for (int flag : flags) {
-            if (flag < 0) {
-                return false;
-            }
-        }
+//        for (int flag : flags) {
+//            if (flag < 0) {
+//                return false;
+//            }
+//        }
         return true;
     }
 

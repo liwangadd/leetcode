@@ -42,6 +42,31 @@ public class T8 {
         return (int) out;
     }
 
+    public int myAtoi2(String str) {
+        int index = 0, sign = 1, total = 0;
+        char[] sArr = str.toCharArray();
+        while (index < sArr.length && sArr[index] == ' ') ++index;
+        if (index < sArr.length && (sArr[index] == '-' || sArr[index] == '+')) {
+            if(sArr[index] == '-')
+                sign = -1;
+            ++index;
+        }
+        while (index < str.length()) {
+            char c = sArr[index];
+            if (Character.isDigit(c)) {
+                int digit = c - '0';
+                if (total > Integer.MAX_VALUE / 10 || (total == Integer.MAX_VALUE / 10 && Integer.MAX_VALUE % 10 < digit)) {
+                    return sign == -1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                }
+                total = total * 10 + digit;
+            } else {
+                break;
+            }
+            ++index;
+        }
+        return sign * total;
+    }
+
     public static void main(String[] args) {
         T8 solution = new T8();
         System.out.println(solution.myAtoi("   "));

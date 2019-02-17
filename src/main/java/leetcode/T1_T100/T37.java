@@ -33,7 +33,7 @@ public class T37 {
                 return false;
             }
             int rowIndex = 3 * (row / 3) + i / 3;
-            int colIndex = 3 * (row % 3) + i % 3;
+            int colIndex = 3 * (row / 3) + i % 3;
             if (board[rowIndex][colIndex] == board[row][col] && (rowIndex != row || colIndex != col)) {
                 return false;
             }

@@ -38,13 +38,13 @@ public class T321 {
         return res;
     }
 
-    public static void main(String[] args) {
-        T321 solution = new T321();
-
-        for (int num : solution.maxNumber(new int[]{2, 5, 6, 4, 4, 0}, new int[]{7, 3, 8, 0, 6, 5, 7, 6, 2}, 15)) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
-    }
+//    public static void main(String[] args) {
+//        T321 solution = new T321();
+//
+//        for (int num : solution.maxNumber(new int[]{2, 5, 6, 4, 4, 0}, new int[]{7, 3, 8, 0, 6, 5, 7, 6, 2}, 15)) {
+//            System.out.print(num + " ");
+//        }
+//        System.out.println();
+//    }
 
 }

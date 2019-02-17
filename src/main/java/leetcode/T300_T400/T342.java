@@ -3,10 +3,8 @@ package leetcode.T300_T400;
 public class T342 {
 
     public boolean isPowerOfFour(int num) {
-        while (num % 4 == 0) {
-            num /= 4;
-        }
-        return num == 1;
+        double res1 = Math.log10(num) / Math.log10(4);
+        return res1 - (int) res1 == 0;
     }
 
 }

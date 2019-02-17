@@ -18,6 +18,7 @@ public class T4 {
             else return (Math.max(l1, l2) + Math.min(r1, r2)) / 2.0;
         }
         return -1;
+
     }
 
     public static void main(String[] args) {

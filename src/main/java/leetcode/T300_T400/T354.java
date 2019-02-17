@@ -10,9 +10,9 @@ public class T354 {
             if (o1[0] == o2[0]) return o2[1] - o1[1];
             else return o1[0] - o2[0];
         });
-        for (int[] envelope : envelopes) {
-            System.out.println(envelope[0] + "--" + envelope[1]);
-        }
+//        for (int[] envelope : envelopes) {
+//            System.out.println(envelope[0] + "--" + envelope[1]);
+//        }
         int[] dp = new int[envelopes.length];
         int len = 0;
         for (int[] envelope : envelopes) {

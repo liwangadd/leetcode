@@ -10,6 +10,7 @@ public class T29 {
         boolean isNegative = (dividend > 0) ^ (divisor > 0);
         dividend = dividend < 0 ? -dividend : dividend;
         divisor = divisor < 0 ? -divisor : divisor;
+
         while (dividend >= divisor) {
             long divisorShift = divisor;
             long time = 1;

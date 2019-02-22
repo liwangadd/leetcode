@@ -4,15 +4,15 @@ import utils.TreeNode;
 
 public class T124 {
 
-    private static int maxSum = Integer.MIN_VALUE;
+    private int maxSum = Integer.MIN_VALUE;
 
-    public static int maxPathSum(TreeNode root) {
+    public int maxPathSum(TreeNode root) {
         if (root == null) return 0;
         maxSubPathSum(root);
         return maxSum;
     }
 
-    private static int maxSubPathSum(TreeNode root) {
+    private int maxSubPathSum(TreeNode root) {
         if (root == null)
             return 0;
         int curValue = root.val;
@@ -29,8 +29,9 @@ public class T124 {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(-10);
-        System.out.println(maxPathSum(root));
+        T124 solution=new T124();
+        TreeNode root = new TreeNode(0);
+        System.out.println(solution.maxPathSum(root));
     }
 
 }

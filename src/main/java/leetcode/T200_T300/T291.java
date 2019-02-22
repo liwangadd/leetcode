@@ -45,8 +45,7 @@ public class T291 {
                 if(word.length() == patternToStr.get(c).length()) {
                     return false;
                 }
-            } else if(strToPattern.containsKey(word) && c != strToPattern.get(word)) {
-            } else {
+            } else if (!strToPattern.containsKey(word) || c == strToPattern.get(word)) {
                 posPattern++;
                 posString += word.length();
             }

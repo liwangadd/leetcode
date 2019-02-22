@@ -1,7 +1,5 @@
 package leetcode.T300_T400;
 
-import java.util.List;
-
 public class T308 {
 
     static class NumMatrix {

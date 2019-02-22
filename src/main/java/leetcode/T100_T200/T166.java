@@ -9,7 +9,7 @@ public class T166 {
         if (numerator1 == 0) return "0";
         boolean isNegative = (numerator1 > 0 ^ denominator1 > 0);
         StringBuilder sb = new StringBuilder();
-        long numerator = Math.abs((long)numerator1);
+        long numerator = Math.abs((long) numerator1);
         long denominator = Math.abs((long) denominator1);
         sb.append(isNegative ? "-" : "").append(numerator / denominator);
         if (numerator % denominator == 0) return sb.toString();

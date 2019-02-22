@@ -12,7 +12,7 @@ public class T267 {
         char[] sArr = s.toCharArray();
         int[] charCount = new int[26];
         oddChar = 0;
-        for (int i = 0, len = sArr.length; i < len; ++i) charCount[sArr[i] - 'a']++;
+        for (char aSArr : sArr) charCount[aSArr - 'a']++;
         int counts = 0;
         for (int i = 0; i < 26; ++i) {
             if ((charCount[i] & 1) == 1) {

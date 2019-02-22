@@ -4,7 +4,7 @@ import java.util.*;
 
 public class T205 {
 
-    public static boolean isIsomorphic(String s, String t) {
+    public boolean isIsomorphic(String s, String t) {
         if (s.equals(t)) return true;
         if (s.length() != t.length()) return false;
         Map<Character, Integer> map = new HashMap<>();
@@ -24,9 +24,10 @@ public class T205 {
     }
 
     public static void main(String[] args) {
-        System.out.println(isIsomorphic("egg", "add"));
-        System.out.println(isIsomorphic("foo", "bar"));
-        System.out.println(isIsomorphic("paper", "title"));
+        T205 solution = new T205();
+        System.out.println(solution.isIsomorphic("egg", "add"));
+        System.out.println(solution.isIsomorphic("foo", "bar"));
+        System.out.println(solution.isIsomorphic("paper", "title"));
     }
 
 }

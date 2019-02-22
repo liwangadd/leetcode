@@ -4,7 +4,7 @@ public class T318 {
 
     public int maxProduct(String[] words) {
         int[] values = new int[words.length];
-        for (int i=0;i<words.length;++i) {
+        for (int i = 0; i < words.length; ++i) {
             for (int j = 0, len = words[i].length(); j < len; ++j) {
                 values[i] |= 1 << (words[i].charAt(j) - 'a');
             }

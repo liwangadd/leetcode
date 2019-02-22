@@ -1,7 +1,5 @@
 package leetcode.T300_T400;
 
-import leetcode.T1_T100.T38;
-
 import java.util.*;
 
 public class T380 {

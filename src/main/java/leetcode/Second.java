@@ -1,26 +1,27 @@
 package leetcode;
 
-import utils.ListNode;
+import javafx.scene.transform.Rotate;
 import utils.TreeNode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Second {
 
-    public int removeDuplicates(int[] nums) {
-        int slow = 0, fast = 1;
-        while (fast < nums.length) {
-            if (nums[slow] != nums[fast]) {
-                nums[++slow] = nums[fast];
-            }
-            ++fast;
+    public boolean canJump(int[] nums) {
+        int reached = 0;
+        for (int i = 0; i < nums.length; ++i) {
+            if (reached < i) return false;
+            reached = Math.max(reached, i + nums[i]);
         }
-        return slow+1;
+        return true;
     }
 
     public static void main(String[] args) {
         Second solution = new Second();
-//        System.out.println(solution.isValid("{[]}"));
+//        System.out.println(solution.maxCoins(new int[]{3, 1, 5, 8}));
+//        System.out.println(solution.evalRPN(new String[]{"2", "1", "+", "3", "*"}));
 //        for (int num : solution.maxSlidingWindow(new int[]{1, 3, 1, 2, 0, 5}, 3)) {
 //            System.out.println(num);
 //        }

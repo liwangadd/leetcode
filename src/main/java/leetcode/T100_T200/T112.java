@@ -19,7 +19,7 @@ public class T112 {
         if (root.right != null) {
             flag2 = hasPathSum(root.right, current + root.val, sum);
         }
-        return flag1 || flag2;
+        return flag1 | flag2;
     }
 
 }

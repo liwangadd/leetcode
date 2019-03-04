@@ -1,7 +1,5 @@
 package leetcode.T1_T100;
 
-import com.github.benmanes.caffeine.cache.Caffeine;
-
 import java.util.concurrent.TimeUnit;
 
 public class T27 {
@@ -14,13 +12,6 @@ public class T27 {
             }
         }
         return s;
-    }
-
-    public static void main(String[] args) {
-        Caffeine.newBuilder().maximumSize(10000)
-                .expireAfterWrite(5, TimeUnit.SECONDS)
-                .refreshAfterWrite(1, TimeUnit.SECONDS)
-                .build();
     }
 
 }

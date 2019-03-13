@@ -8,8 +8,14 @@ public class T261 {
         for (int i = 0; i < n; ++i) parents[i] = i;
         for (int[] edge : edges) {
             int point1 = edge[0], point2 = edge[1];
-            while (parents[point1] != point1) point1 = parents[point1];
-            while (parents[point2] != point2) point2 = parents[point2];
+            while (parents[point1] != point1) {
+                parents[point1] = parents[parents[point1]];
+                point1 = parents[point1];
+            }
+            while (parents[point2] != point2) {
+                parents[point2] = parents[parents[point2]];
+                point2 = parents[point2];
+            }
             if (point1 != point2) {
                 parents[point2] = point1;
                 --n;

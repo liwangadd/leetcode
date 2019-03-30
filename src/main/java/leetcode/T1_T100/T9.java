@@ -3,13 +3,13 @@ package leetcode.T1_T100;
 public class T9 {
 
     public static boolean isPalindrome(int x) {
-        String s = Integer.toString(x);
-        for (int start = 0, end = s.length() - 1; start < end; start++, end--) {
-            if (s.charAt(start) != s.charAt(end)) {
-                return false;
-            }
+        if (x < 0 || x % 10 == 0 && x != 0) return false;
+        int rev = 0;
+        while (rev < x) {
+            rev = rev * 10 + x % 10;
+            x /= 10;
         }
-        return true;
+        return x==rev || rev / 10 == x;
     }
 
     public static void main(String[] args) {

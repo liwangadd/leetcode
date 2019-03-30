@@ -4,7 +4,7 @@ public class T434 {
 
     public static int countSegments(String s) {
         s = s.trim();
-        if (s == null || s.length() == 0) return 0;
+        if (s.length() == 0) return 0;
         String[] splits = s.split("\\s+");
         return splits.length;
     }

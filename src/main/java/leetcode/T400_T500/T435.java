@@ -1,23 +1,10 @@
 package leetcode.T400_T500;
 
+import utils.Interval;
+
 import java.util.Arrays;
 
 public class T435 {
-
-    public class Interval {
-        int start;
-        int end;
-
-        Interval() {
-            start = 0;
-            end = 0;
-        }
-
-        Interval(int s, int e) {
-            start = s;
-            end = e;
-        }
-    }
 
     public int eraseOverlapIntervals(Interval[] intervals) {
         if (intervals.length == 0) return 0;

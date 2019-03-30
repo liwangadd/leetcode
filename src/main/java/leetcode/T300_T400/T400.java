@@ -13,7 +13,7 @@ public class T400 {
             start *= 10;
         }
         start += (n - 1) / len;
-        System.out.println(start);
+//        System.out.println(start);
         String s = Integer.toString(start);
         return s.charAt((n - 1) % len) - '0';
     }
@@ -22,6 +22,7 @@ public class T400 {
 //        System.out.println(findNthDigit(2));
         System.out.println(findNthDigit(11));
         System.out.println(findNthDigit(1000000000));
+        System.out.println(findNthDigit(100));
     }
 
 }

@@ -13,4 +13,9 @@ public class T343 {
         return dp[n];
     }
 
+    public static void main(String[] args) {
+        T343 solution = new T343();
+        System.out.println(solution.integerBreak(100));
+    }
+
 }

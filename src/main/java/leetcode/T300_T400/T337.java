@@ -2,7 +2,9 @@ package leetcode.T300_T400;
 
 import utils.TreeNode;
 
-public class T337 {
+import java.io.Serializable;
+
+public class T337 implements Serializable{
 
     public int rob(TreeNode root) {
         if (root == null) return 0;
@@ -18,5 +20,14 @@ public class T337 {
         res[0] = Math.max(res1[0], res1[1]) + Math.max(res2[0], res2[1]);
         res[1] = node.val + res1[0] + res2[0];
         return res;
+    }
+
+    public void test(){
+        System.out.println(getClass().getGenericSuperclass());
+    }
+
+    public static void main(String[] args) {
+        T337 solution = new T337();
+        solution.test();
     }
 }

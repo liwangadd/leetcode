@@ -17,7 +17,8 @@ public class T291 {
         return wordPatternMatch(pattern, str, patternToStr, strToPattern, 0, 0);
     }
 
-    private boolean wordPatternMatch(String pattern, String str, Map<Character, String> patternToStr, Map<String, Character> strToPattern, int posPattern, int posString) {
+    private boolean wordPatternMatch(String pattern, String str, Map<Character, String> patternToStr,
+                                     Map<String, Character> strToPattern, int posPattern, int posString) {
         if(posPattern == pattern.length()) {
             return true;
         }

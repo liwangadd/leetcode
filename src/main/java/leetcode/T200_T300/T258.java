@@ -16,10 +16,6 @@ public class T258 {
         return num;
     }
 
-    public int addDigits2(int num) {
-        return 1 + (num - 1) % 9;
-    }
-
     public static void main(String[] args) {
         T258 solution = new T258();
         System.out.println(solution.addDigits(38));

@@ -12,6 +12,7 @@ public class T410 {
         int left = max, right = sum;
         while (left <= right) {
             int mid = left + (right - left) / 2;
+            System.out.println(mid);
             if (isValid(nums, mid, m)) {
                 right = mid - 1;
             } else {
@@ -33,6 +34,11 @@ public class T410 {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        T410 solution = new T410();
+        System.out.println(solution.splitArray(new int[]{7,2,5,10,8}, 2));
     }
 
 }

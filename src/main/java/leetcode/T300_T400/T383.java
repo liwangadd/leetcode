@@ -11,11 +11,6 @@ public class T383 {
             --flags[ransomNote.charAt(i) - 'a'];
             if(flags[ransomNote.charAt(i) - 'a'] < 0) return false;
         }
-//        for (int flag : flags) {
-//            if (flag < 0) {
-//                return false;
-//            }
-//        }
         return true;
     }
 

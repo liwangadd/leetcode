@@ -14,7 +14,7 @@ public class T257 {
         return res;
     }
 
-    public static void binaryTreePaths(TreeNode root, String path, List<String> res) {
+    private static void binaryTreePaths(TreeNode root, String path, List<String> res) {
         if (root.left == null && root.right == null) {
             res.add(path + root.val);
             return;

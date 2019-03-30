@@ -11,7 +11,6 @@ public class T251 {
         private Iterator<Integer> colIterator;
 
         public Vector2D(List<List<Integer>> vec2d) {
-            // Initialize your data structure here
             rowIterator = vec2d.iterator();
         }
 

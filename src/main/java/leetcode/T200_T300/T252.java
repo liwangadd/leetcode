@@ -1,17 +1,10 @@
 package leetcode.T200_T300;
 
+import utils.Interval;
+
 import java.util.List;
 
 public class T252 {
-
-    public static class Interval {
-        int start, end;
-
-        Interval(int start, int end) {
-            this.start = start;
-            this.end = end;
-        }
-    }
 
     public boolean canAttendMeetings(List<Interval> intervals) {
         if (intervals == null || intervals.size() == 0) return true;

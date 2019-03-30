@@ -3,23 +3,20 @@ package leetcode.T1_T100;
 public class T66 {
 
     private static int[] plusOne(int[] digits) {
-        int index = digits.length - 1;
-        int flag = 1;
-        while (index > -1) {
-            int tmp = digits[index] + flag;
-            digits[index] = tmp % 10;
-            flag = tmp / 10;
-            if (flag == 0) break;
-            --index;
+        int n = digits.length;
+        for (int i = n - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
+                digits[i]++;
+                return digits;
+            }
+
+            digits[i] = 0;
         }
-        if (flag == 1) {
-            int res[] = new int[digits.length + 1];
-            res[0] = flag;
-            if (digits.length - 1 >= 0) System.arraycopy(digits, 1, res, 1, digits.length - 1);
-            return res;
-        } else {
-            return digits;
-        }
+
+        int[] newNumber = new int[n + 1];
+        newNumber[0] = 1;
+
+        return newNumber;
     }
 
     public static void main(String[] args) {

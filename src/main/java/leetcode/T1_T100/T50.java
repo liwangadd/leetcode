@@ -16,4 +16,11 @@ public class T50 {
 
     }
 
+    public static void main(String[] args) {
+        T50 solution = new T50();
+        int n = -2147483648;
+        System.out.println(-n);
+        System.out.println(solution.myPow(2, -2147483648));
+    }
+
 }

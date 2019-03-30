@@ -10,7 +10,6 @@ public class T60 {
             if (k <= 0) break;
             int fac = factorial(n - i - 1);
             int res = k / fac + 1;
-            System.out.println(fac + " " + res);
             int index = 1;
             for (int j = 1; j < n + 1; ++j) {
                 if (!nums[j] && index++ == res) {

@@ -1,7 +1,5 @@
 package leetcode.T200_T300;
 
-import java.util.Arrays;
-
 public class T280 {
 
     public void wiggleSort(int[] nums) {

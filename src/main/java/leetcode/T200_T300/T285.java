@@ -2,8 +2,6 @@ package leetcode.T200_T300;
 
 import utils.TreeNode;
 
-import java.util.concurrent.ExecutorService;
-
 public class T285 {
 
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {

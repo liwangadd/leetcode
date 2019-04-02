@@ -50,4 +50,41 @@ public class T315 {
         return res;
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////
+
+    private class Node {
+        private Node left, right;
+        private int val, sum, dup = 1;
+
+        public Node(int val, int sum) {
+            this.val = val;
+            this.sum = sum;
+        }
+    }
+
+    public List<Integer> countSmaller2(int[] nums) {
+        Integer[] ans = new Integer[nums.length];
+        Node root = null;
+        for (int i = nums.length - 1; i >= 0; --i) {
+            root = buildTree(root, nums[i], ans, i, 0);
+        }
+        return Arrays.asList(ans);
+    }
+
+    private Node buildTree(Node node, int num, Integer[] ans, int i, int preSum) {
+        if (node == null) {
+            node = new Node(num, 0);
+            ans[i] = preSum;
+        } else if (node.val == num) {
+            node.dup++;
+            ans[i] = preSum + node.sum;
+        } else if (node.val > num) {
+            node.sum++;
+            node.left = buildTree(node.left, num, ans, i, preSum);
+        } else {
+            node.right = buildTree(node.right, num, ans, i, preSum + node.dup + node.sum);
+        }
+        return node;
+    }
+
 }

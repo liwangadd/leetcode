@@ -6,7 +6,6 @@ import java.util.Queue;
 
 public class T429 {
 
-    // Definition for a Node.
     class Node {
         public int val;
         public List<Node> children;

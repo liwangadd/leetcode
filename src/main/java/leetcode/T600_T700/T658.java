@@ -1,9 +1,9 @@
-package leetcode;
+package leetcode.T600_T700;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Second {
+public class T658 {
 
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
         LinkedList<Integer> res = new LinkedList<>();
@@ -32,20 +32,6 @@ public class Second {
             }
         }
         return res;
-    }
-
-
-    public static void main(String[] args) {
-        Second solution = new Second();
-        for (Integer item : solution.findClosestElements(new int[]{1, 2, 2, 2, 5, 5, 5, 8, 9, 9}, 4, 10)) {
-            System.out.println(item);
-        }
-//        solution.add();
-//        System.out.println(solution.maxCoins(new int[]{3, 1, 5, 8}));
-//        System.out.println(solution.evalRPN(new String[]{"2", "1", "+", "3", "*"}));
-//        for (int num : solution.maxSlidingWindow(new int[]{1, 3, 1, 2, 0, 5}, 3)) {
-//            System.out.println(num);
-//        }
     }
 
 }

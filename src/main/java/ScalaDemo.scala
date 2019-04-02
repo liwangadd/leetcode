@@ -1,21 +1,12 @@
 import utils.TreeNode
+
 import scala.collection.mutable
+import scala.reflect.internal.util.StringOps
 
 object ScalaDemo {
 
-  def singleNumber(nums: Array[Int]): Array[Int] = {
-    var xor = 0
-    nums.foreach(xor^=_)
-    xor = xor & (-xor)
-    val res = Array[Int](0, 0)
-    nums.foreach{num=>
-      if((num&xor)==1) {
-        res(0) ^= num
-      }
-      else {
-        res(1) ^= num
-      }
-    }
-    res
+  def main(args: Array[String]): Unit = {
+    (0 to 10 reverse) foreach println
   }
+
 }

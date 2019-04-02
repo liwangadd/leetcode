@@ -49,7 +49,7 @@ public class T394 {
 
     public static void main(String[] args) {
         T394 solution = new T394();
-        System.out.println(solution.decodeString("3[a]2[bc]"));
+        System.out.println(solution.decodeString("e3[2[abc]gh]"));
         System.out.println(solution.decodeString("3[a2[c]]"));
         System.out.println(solution.decodeString("2[abc]3[cd]ef"));
         System.out.println(solution.decodeString("100[leetcode]"));

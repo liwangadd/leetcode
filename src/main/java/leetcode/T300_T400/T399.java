@@ -1,11 +1,13 @@
 package leetcode.T300_T400;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class T399 {
 
-    private Map<String, Boolean> visited = new HashMap<>();
+    private Set<String> visited = new HashSet<>();
 
     private static class Result {
         boolean isSuccess;
@@ -61,7 +63,7 @@ public class T399 {
     }
 
     private Result dfs(Map<String, Double> formula, Map<String, Map<String, Double>> formulaMap, String p1, String p2) {
-        visited.put(p1, true);
+        visited.add(p1);
         Result result = new Result();
         if (formula.containsKey(p2)) {
             result.isSuccess = true;
@@ -69,7 +71,7 @@ public class T399 {
             return result;
         }
         for (String key : formula.keySet()) {
-            if (!visited.containsKey(key)) {
+            if (!visited.contains(key)) {
                 result = dfs(formulaMap.get(key), formulaMap, key, p2);
                 if (result.isSuccess) {
                     result.res = formula.get(key) * result.res;

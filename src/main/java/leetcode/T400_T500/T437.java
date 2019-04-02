@@ -5,15 +5,14 @@ import utils.TreeNode;
 public class T437 {
 
     public int pathSum(TreeNode root, int sum) {
-        return pathSum1(root, sum);
+        if (root == null) return 0;
+        return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
     }
 
-    private int pathSum1(TreeNode node, int sum) {
-        if (node == null || sum < 0) return 0;
-        if (sum == 0) return 1;
-        int count1 = pathSum(node.left, sum - node.val) + pathSum(node.right, sum - node.val);
-        int count2 = pathSum(node.left, sum) + pathSum(node.right, sum);
-        return count1 + count2;
+    private int pathSumFrom(TreeNode node, int sum) {
+        if (node == null) return 0;
+        return (node.val == sum ? 1 : 0)
+                + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
     }
 
 }

@@ -1,45 +1,31 @@
 package leetcode;
 
-import java.util.LinkedList;
-import java.util.List;
+import com.sun.scenario.effect.Offset;
+import utils.ListNode;
+import utils.TreeNode;
+
+import java.util.*;
 
 public class Second {
 
-    public List<Integer> findClosestElements(int[] arr, int k, int x) {
-        LinkedList<Integer> res = new LinkedList<>();
-        if (arr == null || arr.length == 0) return res;
-        int left = 0, right = arr.length - 1, closestIndex = -1;
-        while (left < right) {
-            int mid1 = left + (right - left) / 2;
-            int mid2 = mid1 + 1;
-            if (Math.abs(arr[mid1] - x) < Math.abs(arr[mid2] - x)) right = mid1;
-            else if (Math.abs(arr[mid1] - x) > Math.abs(arr[mid2] - x)) left = mid2;
-            else {
-                if (arr[mid1] > x) right = mid1;
-                else left = mid2;
+    public boolean isInterleave(String s1, String s2, String s3) {
+        int len1 = s1.length(), len2 = s2.length(), len3 = s3.length();
+        if (len1 + len2 != len3) return false;
+        boolean[][] dp = new boolean[len1 + 1][len2 + 1];
+        dp[0][0] = true;
+        for (int i = 1; i <= len1; ++i) dp[i][0] = dp[i - 1][0] & s1.charAt(i - 1) == s3.charAt(i - 1);
+        for (int j = 1; j <= len2; ++j) dp[0][j] = dp[0][j - 1] & s2.charAt(j - 1) == s3.charAt(j - 1);
+        for (int i = 1; i <= len1; ++i) {
+            for (int j = 1; j <= len2; ++j) {
+                dp[i][j] = dp[i - 1][j] & s1.charAt(i - 1) == s3.charAt(i + j - 1) | dp[i][j - 1] & s2.charAt(j - 1) == s3.charAt(i + j - 1);
             }
         }
-        closestIndex = left;
-        System.out.println(closestIndex);
-        res.add(arr[closestIndex]);
-        --k;
-        int leftPos = closestIndex - 1, rightPos = closestIndex + 1;
-        while (k-- != 0) {
-            if (leftPos < 0 || rightPos < arr.length && Math.abs(arr[rightPos] - x) < Math.abs(arr[leftPos] - x)) {
-                res.add(arr[rightPos++]);
-            } else {
-                res.addFirst(arr[leftPos--]);
-            }
-        }
-        return res;
+        return dp[len1][len2];
     }
 
 
     public static void main(String[] args) {
         Second solution = new Second();
-        for (Integer item : solution.findClosestElements(new int[]{1, 2, 2, 2, 5, 5, 5, 8, 9, 9}, 4, 10)) {
-            System.out.println(item);
-        }
 //        solution.add();
 //        System.out.println(solution.maxCoins(new int[]{3, 1, 5, 8}));
 //        System.out.println(solution.evalRPN(new String[]{"2", "1", "+", "3", "*"}));

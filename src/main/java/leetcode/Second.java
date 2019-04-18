@@ -1,31 +1,45 @@
 package leetcode;
 
-import com.sun.scenario.effect.Offset;
+import sun.util.resources.cldr.my.CurrencyNames_my;
 import utils.ListNode;
+import utils.NestedInteger;
 import utils.TreeNode;
 
 import java.util.*;
 
 public class Second {
 
-    public boolean isInterleave(String s1, String s2, String s3) {
-        int len1 = s1.length(), len2 = s2.length(), len3 = s3.length();
-        if (len1 + len2 != len3) return false;
-        boolean[][] dp = new boolean[len1 + 1][len2 + 1];
-        dp[0][0] = true;
-        for (int i = 1; i <= len1; ++i) dp[i][0] = dp[i - 1][0] & s1.charAt(i - 1) == s3.charAt(i - 1);
-        for (int j = 1; j <= len2; ++j) dp[0][j] = dp[0][j - 1] & s2.charAt(j - 1) == s3.charAt(j - 1);
-        for (int i = 1; i <= len1; ++i) {
-            for (int j = 1; j <= len2; ++j) {
-                dp[i][j] = dp[i - 1][j] & s1.charAt(i - 1) == s3.charAt(i + j - 1) | dp[i][j - 1] & s2.charAt(j - 1) == s3.charAt(i + j - 1);
-            }
-        }
-        return dp[len1][len2];
+    public String shortestPalindrome(String s) {
+        if (s == null || s.length() < 1) return s;
+        String tmp = s + "#" + new StringBuilder(s).reverse();
+        int[] next = buildNext(tmp);
+        return new StringBuilder(s.substring(next[tmp.length() - 1])).reverse() + s;
     }
 
+    private int[] buildNext(String str) {
+        int[] next = new int[str.length()];
+        next[0] = 0;
+        int slow = 0;
+        for (int fast = 1; fast < str.length(); ++fast) {
+            while (slow > 0 && str.charAt(slow) != str.charAt(fast)) slow = next[slow - 1];
+            next[fast] = (slow += str.charAt(slow) == str.charAt(fast) ? 1 : 0);
+        }
+        // int slow = -1, fast = 0;
+        // while (fast < str.length() - 1) {
+        //     if (slow == -1 || str.charAt(slow) == str.charAt(fast)) {
+        //         next[++fast] = ++slow;
+        //     } else {
+        //         slow = next[slow];
+        //     }
+        // }
+        return next;
+    }
 
     public static void main(String[] args) {
         Second solution = new Second();
+        for (int pos : solution.buildNext("aacecaaa")) {
+            System.out.print(pos + " ");
+        }
 //        solution.add();
 //        System.out.println(solution.maxCoins(new int[]{3, 1, 5, 8}));
 //        System.out.println(solution.evalRPN(new String[]{"2", "1", "+", "3", "*"}));

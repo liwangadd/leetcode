@@ -2,10 +2,7 @@ package leetcode.T100_T200;
 
 import utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class T107 {
 
@@ -35,11 +32,8 @@ public class T107 {
             levelCount = currentCount;
             res.add(nodeList);
         }
-        List<List<Integer>> result = new ArrayList<>();
-        for (int i = res.size() - 1; i > -1; --i) {
-            result.add(res.get(i));
-        }
-        return result;
+        Collections.reverse(res);
+        return res;
     }
 
 }

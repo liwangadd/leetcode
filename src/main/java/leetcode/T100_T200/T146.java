@@ -1,7 +1,6 @@
 package leetcode.T100_T200;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class T146 {
 
@@ -47,4 +46,40 @@ public class T146 {
         cache.get(4);       // returns 4
     }
 
+}
+
+class LRUCache{
+
+    private int capacity;
+    private List<Integer> keyList;
+    private Map<Integer, Integer> cache;
+
+    public LRUCache(int capacity){
+        this.capacity = capacity;
+        this.keyList = new LinkedList<>();
+        this.cache = new HashMap<>();
+    }
+
+    public int get(int key){
+        if(cache.containsKey(key)){
+            keyList.remove((Integer)key);
+            keyList.add(key);
+            return cache.get(key);
+        }else{
+            return -1;
+        }
+    }
+
+    public void put(int key, int value){
+        if(cache.containsKey(key)){
+            keyList.remove((Integer)key);
+        }else{
+            if(cache.size()>=capacity){
+                Integer evictKey = keyList.remove(0);
+                cache.remove(evictKey);
+            }
+        }
+        cache.put(key, value);
+        keyList.add(key);
+    }
 }

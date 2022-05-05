@@ -48,33 +48,33 @@ public class T146 {
 
 }
 
-class LRUCache{
+class LRUCache {
 
     private int capacity;
     private List<Integer> keyList;
     private Map<Integer, Integer> cache;
 
-    public LRUCache(int capacity){
+    public LRUCache(int capacity) {
         this.capacity = capacity;
         this.keyList = new LinkedList<>();
         this.cache = new HashMap<>();
     }
 
-    public int get(int key){
-        if(cache.containsKey(key)){
-            keyList.remove((Integer)key);
+    public int get(int key) {
+        if (cache.containsKey(key)) {
+            keyList.remove((Integer) key);
             keyList.add(key);
             return cache.get(key);
-        }else{
+        } else {
             return -1;
         }
     }
 
-    public void put(int key, int value){
-        if(cache.containsKey(key)){
-            keyList.remove((Integer)key);
-        }else{
-            if(cache.size()>=capacity){
+    public void put(int key, int value) {
+        if (cache.containsKey(key)) {
+            keyList.remove((Integer) key);
+        } else {
+            if (cache.size() >= capacity) {
                 Integer evictKey = keyList.remove(0);
                 cache.remove(evictKey);
             }

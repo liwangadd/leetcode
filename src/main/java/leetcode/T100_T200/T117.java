@@ -1,8 +1,5 @@
 package leetcode.T100_T200;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class T117 {
 
     public class TreeLinkNode {

@@ -14,7 +14,7 @@ public class T307 {
         }
     }
 
-    private SegmentTreeNode root;
+    private final SegmentTreeNode root;
 
     public T307(int[] nums) {
         this.root = buildTree(nums, 0, nums.length - 1);

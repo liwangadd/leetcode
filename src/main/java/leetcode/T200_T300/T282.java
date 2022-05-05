@@ -11,7 +11,7 @@ public class T282 {
 
         for (int i = 1; i <= num.length(); ++i) {
             String val = num.substring(0, i);
-            helper(num.substring(i), val, 0, Long.valueOf(val), target, res);
+            helper(num.substring(i), val, 0, Long.parseLong(val), target, res);
             if (num.charAt(0) == '0') break;
         }
         return res;
@@ -22,7 +22,7 @@ public class T282 {
             res.add(path);
         }
         for (int i = 1; i <= num.length(); ++i) {
-            long val = Long.valueOf(num.substring(0, i));
+            long val = Long.parseLong(num.substring(0, i));
             String nextNum = num.substring(i);
             helper(nextNum, path + "+" + val, subTarget + last, val, target, res);
             helper(nextNum, path + "-" + val, subTarget + last, -val, target, res);

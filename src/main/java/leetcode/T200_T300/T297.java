@@ -42,18 +42,18 @@ public class T297 {
         String[] itemStrs = data.split(",");
 
         int index = 0;
-        TreeNode root = new TreeNode(Integer.valueOf(itemStrs[index++]));
+        TreeNode root = new TreeNode(Integer.parseInt(itemStrs[index++]));
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (index < itemStrs.length) {
             TreeNode node = queue.poll();
             if (!itemStrs[index].equals("null")) {
-                node.left = new TreeNode(Integer.valueOf(itemStrs[index]));
+                node.left = new TreeNode(Integer.parseInt(itemStrs[index]));
                 queue.add(node.left);
             }
             ++index;
             if (index < itemStrs.length && !itemStrs[index].equals("null")) {
-                node.right = new TreeNode(Integer.valueOf(itemStrs[index]));
+                node.right = new TreeNode(Integer.parseInt(itemStrs[index]));
                 queue.add(node.right);
             }
             ++index;

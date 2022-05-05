@@ -13,7 +13,6 @@ public class T400 {
             start *= 10;
         }
         start += (n - 1) / len;
-//        System.out.println(start);
         String s = Integer.toString(start);
         return s.charAt((n - 1) % len) - '0';
     }

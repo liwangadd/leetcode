@@ -19,7 +19,7 @@ public class T347 {
         if (nums == null || nums.length == 0) return res;
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
+            map.compute(num, (key, value) -> value == null ? 1 : value + 1);
         }
         PriorityQueue<Node> priorityQueue = new PriorityQueue<>(k, Comparator.comparingInt(o -> o.freq));
         for (Map.Entry<Integer, Integer> entry : map.entrySet()) {

@@ -1,7 +1,5 @@
 package leetcode.T100_T200;
 
-import utils.ListNode;
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -26,9 +26,9 @@ public class T382 {
         public int getRandom() {
             ListNode cur = this.head;
             int res = cur.val;
-            for(int i = 1;cur.next!=null;++i){
-                cur=cur.next;
-                if(random.nextInt(i + 1)==i) res=cur.val;
+            for (int i = 1; cur.next != null; ++i) {
+                cur = cur.next;
+                if (random.nextInt(i + 1) == i) res = cur.val;
             }
             return res;
         }

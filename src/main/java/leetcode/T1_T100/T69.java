@@ -1,5 +1,8 @@
 package leetcode.T1_T100;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 public class T69 {
 
     public int mySqrt(int x) {
@@ -24,9 +27,10 @@ public class T69 {
         return -1;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         T69 solution = new T69();
         System.out.println(solution.mySqrt2(32980));
         System.out.println(solution.mySqrt(32980));
+        System.out.println(URLEncoder.encode("ytu/qb-repo-1", "UTF-8"));
     }
 }

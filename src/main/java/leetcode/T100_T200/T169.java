@@ -1,7 +1,5 @@
 package leetcode.T100_T200;
 
-import java.util.Arrays;
-
 public class T169 {
 
     public int majorityElement(int[] nums) {

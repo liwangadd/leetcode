@@ -12,4 +12,8 @@ public class T201 {
         return m << bitRange;
     }
 
+    public static void main(String[] args) {
+        new T201().rangeBitwiseAnd(100, 200);
+    }
+
 }

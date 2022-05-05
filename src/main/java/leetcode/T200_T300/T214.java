@@ -24,7 +24,7 @@ public class T214 {
 
     public static void main(String[] args) {
         T214 solution = new T214();
-        System.out.println(solution.shortestPalindrome("abcd"));
+        System.out.println(solution.shortestPalindrome("abab"));
     }
 
 //    private int[] buildTable(String tmp) {

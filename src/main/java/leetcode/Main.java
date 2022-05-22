@@ -1,51 +1,28 @@
 package leetcode;
 
-import java.nio.file.FileStore;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-import java.util.concurrent.LinkedBlockingQueue;
+
+import java.util.Arrays;
 
 public class Main {
 
-    private Queue<Integer> firstQueue;
-
-    private Queue<Integer> secondQueue;
-
-    public Main() {
-        this.firstQueue = new LinkedList<>();
-        this.secondQueue = new LinkedList<>();
+    public boolean canPartitionKSubsets(int[] nums, int k) {
+        int sum = Arrays.stream(nums).sum();
+        if (sum % k != 0) return false;
+        boolean[] visited = new boolean[nums.length];
+        return helper(nums, visited, 0, 0, sum / k, k);
     }
 
-    public void push(int x) {
-        if (!firstQueue.isEmpty()) {
-            firstQueue.offer(x);
-        } else {
-            secondQueue.offer(x);
-        }
-    }
-
-    public int pop() {
-        if (!firstQueue.isEmpty()) {
-            while (firstQueue.size() > 1) {
-                secondQueue.offer(firstQueue.poll());
+    private boolean helper(int[] nums, boolean[] visited, int startIndex, int curSum, int target, int count) {
+        if (count == 1) return true;
+        if (curSum > target) return false;
+        if (curSum == target) return helper(nums, visited, 0, 0, target, count - 1);
+        for (int i = startIndex; i < nums.length; ++i) {
+            if (!visited[i]) {
+                visited[i] = true;
+                if (helper(nums, visited, i + 1, curSum + nums[i], target, count)) return true;
+                visited[i] = false;
             }
-            return firstQueue.poll();
-        } else {
-            while (secondQueue.size() > 1) {
-                firstQueue.offer(secondQueue.poll());
-            }
-            return secondQueue.poll();
         }
-    }
-
-    public int top() {
-        int ele = pop();
-        push(ele);
-        return ele;
-    }
-
-    public boolean empty() {
-        return firstQueue.isEmpty() && secondQueue.isEmpty();
+        return false;
     }
 }

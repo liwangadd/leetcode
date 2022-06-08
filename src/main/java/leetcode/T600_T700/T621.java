@@ -1,8 +1,5 @@
 package leetcode.T600_T700;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class T621 {
 
     public int leastInterval(char[] tasks, int n) {

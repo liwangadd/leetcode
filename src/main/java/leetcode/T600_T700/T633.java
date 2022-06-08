@@ -1,8 +1,5 @@
 package leetcode.T600_T700;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class T633 {
 
     public boolean judgeSquareSum(int c) {

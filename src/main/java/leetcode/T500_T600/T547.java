@@ -1,7 +1,5 @@
 package leetcode.T500_T600;
 
-import sun.font.TrueTypeFont;
-
 import java.util.LinkedList;
 import java.util.Queue;
 

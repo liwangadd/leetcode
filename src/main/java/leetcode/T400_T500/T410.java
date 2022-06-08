@@ -12,7 +12,6 @@ public class T410 {
         int left = max, right = sum;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            System.out.println(mid);
             if (isValid(nums, mid, m)) {
                 right = mid - 1;
             } else {

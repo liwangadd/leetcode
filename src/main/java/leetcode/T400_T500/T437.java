@@ -2,17 +2,31 @@ package leetcode.T400_T500;
 
 import utils.TreeNode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class T437 {
 
+    private int count;
+
     public int pathSum(TreeNode root, int sum) {
-        if (root == null) return 0;
-        return pathSumFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+        count = 0;
+        Map<Integer, Integer> preSum = new HashMap<>();
+        preSum.put(0, 1);
+        helper(root, 0, sum, preSum);
+        return count;
     }
 
-    private int pathSumFrom(TreeNode node, int sum) {
-        if (node == null) return 0;
-        return (node.val == sum ? 1 : 0)
-                + pathSumFrom(node.left, sum - node.val) + pathSumFrom(node.right, sum - node.val);
+    private void helper(TreeNode node, int curSum, int sum, Map<Integer, Integer> preSum) {
+        if (node == null) return;
+        curSum += node.val;
+        if (preSum.containsKey(curSum - sum)) {
+            count += preSum.get(curSum - sum);
+        }
+        preSum.put(curSum, preSum.getOrDefault(curSum, 0) + 1);
+        helper(node.left, curSum, sum, preSum);
+        helper(node.right, curSum, sum, preSum);
+        preSum.put(curSum, preSum.getOrDefault(curSum, 0) - 1);
     }
 
 }

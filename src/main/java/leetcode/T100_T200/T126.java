@@ -12,84 +12,59 @@ import java.util.Set;
 
 public class T126 {
 
-    private List<List<String>> results;
-    List<String> list;
-    private Map<String, List<String>> map;
+    private List<List<String>> res;
 
-    public List<List<String>> findLadders(String start, String end, List<String> dict) {
-        results = new ArrayList<>();
-        if (dict.size() == 0)
-            return results;
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        res = new ArrayList<>();
+        Set<String> visited = new HashSet<>(), unvisited = new HashSet<>(wordList);
+        Map<String, List<String>> prev = new HashMap<>();
 
-        int curr = 1, next = 0;
-        boolean found = false;
-        list = new LinkedList<>();
-        map = new HashMap<>();
+        if (!unvisited.contains(endWord)) return res;
+        unvisited.remove(beginWord);
 
-        Queue<String> queue = new ArrayDeque<>();
-        Set<String> unvisited = new HashSet<>(dict);
-        Set<String> visited = new HashSet<>();
-
-        queue.add(start);
-        unvisited.add(end);
-        unvisited.remove(start);
-        //BFS
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
+        int count = 1;
         while (!queue.isEmpty()) {
-
-            String word = queue.poll();
-            curr--;
-            for (int i = 0; i < word.length(); i++) {
-                StringBuilder builder = new StringBuilder(word);
-                for (char ch = 'a'; ch <= 'z'; ch++) {
-                    builder.setCharAt(i, ch);
-                    String new_word = builder.toString();
-                    if (unvisited.contains(new_word)) {
-                        //Handle queue
-                        if (visited.add(new_word)) {//Key statement,Avoid Duplicate queue insertion
-                            next++;
-                            queue.add(new_word);
+            while (count-- > 0) {
+                String prevWord = queue.poll();
+                StringBuilder sb = new StringBuilder(prevWord);
+                for (int i = 0, len = sb.length(); i < len; ++i) {
+                    char oldChar = sb.charAt(i);
+                    for (char c = 'a'; c <= 'z'; ++c) {
+                        sb.setCharAt(i, c);
+                        String newWord = sb.toString();
+                        if (unvisited.contains(newWord)) {
+                            visited.add(newWord);
+                            prev.computeIfAbsent(newWord, k->new LinkedList<>()).add(prevWord);
                         }
-
-                        if (map.containsKey(new_word))//Build Adjacent Graph
-                            map.get(new_word).add(word);
-                        else {
-                            List<String> l = new LinkedList<>();
-                            l.add(word);
-                            map.put(new_word, l);
-                        }
-
-                        if (new_word.equals(end) && !found) found = true;
-
                     }
-
-                }//End:Iteration from 'a' to 'z'
-            }//End:Iteration from the first to the last
-            if (curr == 0) {
-                if (found) break;
-                curr = next;
-                next = 0;
-                unvisited.removeAll(visited);
-                visited.clear();
+                    sb.setCharAt(i, oldChar);
+                }
             }
-        }//End While
-
-        backTrace(end, start);
-
-        return results;
+            if (visited.contains(endWord)) {
+                backtrace(beginWord, endWord, prev, new LinkedList<>());
+                break;
+            }
+            count = visited.size();
+            unvisited.removeAll(visited);
+            queue.addAll(visited);
+            visited.clear();
+        }
+        return res;
     }
 
-    private void backTrace(String word, String start) {
-        if (word.equals(start)) {
-            list.add(0, start);
-            results.add(new ArrayList<>(list));
-            list.remove(0);
-            return;
+    private void backtrace(String beginWord, String endWord, Map<String, List<String>> prev, LinkedList<String> path) {
+        path.addFirst(endWord);
+        if (endWord.equals(beginWord)) {
+            res.add(new ArrayList<>(path));
+        } else {
+            List<String> words = prev.get(endWord);
+            for (String word : words) {
+                backtrace(beginWord, word, prev, path);
+            }
         }
-        list.add(0, word);
-        if (map.get(word) != null)
-            for (String s : map.get(word))
-                backTrace(s, start);
-        list.remove(0);
+        path.removeFirst();
     }
 
     public static void main(String[] args) {

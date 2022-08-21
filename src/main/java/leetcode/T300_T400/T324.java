@@ -5,7 +5,6 @@ import java.util.Arrays;
 public class T324 {
 
     public void wiggleSort(int[] nums) {
-        // write your code here
         if (nums == null || nums.length == 0) return;
         Arrays.sort(nums);
         int[] res = new int[nums.length];

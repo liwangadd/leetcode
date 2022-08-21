@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.T900_T1000;
 
 import utils.TreeNode;
 

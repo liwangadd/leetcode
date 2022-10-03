@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.T1000_T1100;
 
 public class T1049 {
 

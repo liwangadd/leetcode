@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class T901 {
 
-    private Stack<Integer[]> stack;
+    private Stack<int[]> stack;
 
     public T901() {
         stack = new Stack<>();
@@ -15,7 +15,7 @@ public class T901 {
         while (!stack.isEmpty() && stack.peek()[0] <= price) {
             res += stack.pop()[1];
         }
-        stack.push(new Integer[]{price, res});
+        stack.push(new int[]{price, res});
         return res;
     }
 

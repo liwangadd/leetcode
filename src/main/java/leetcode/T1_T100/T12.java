@@ -2,9 +2,6 @@ package leetcode.T1_T100;
 
 public class T12 {
 
-    public T12() {
-    }
-
     public static String intToRoman(int num) {
         String[][] table = new String[][]{
                 {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},

@@ -1,6 +1,7 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.TreeMap;
 
 public class T1235 {
@@ -11,7 +12,7 @@ public class T1235 {
         for (int i = 0; i < n; i++) {
             jobs[i] = new int[]{startTime[i], endTime[i], profit[i]};
         }
-        Arrays.sort(jobs, (a, b) -> a[1] - b[1]);
+        Arrays.sort(jobs, Comparator.comparingInt(a -> a[1]));
         TreeMap<Integer, Integer> dp = new TreeMap<>();
         dp.put(0, 0);
         for (int[] job : jobs) {

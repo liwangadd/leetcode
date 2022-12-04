@@ -8,7 +8,7 @@ public class T446 {
     public int numberOfArithmeticSlices(int[] A) {
         if (A == null || A.length < 3) return 0;
         Map<Integer, Integer>[] map = new Map[A.length];
-        int res = 0;
+        long res = 0;
         for (int i = 0; i < A.length; ++i) {
             map[i] = new HashMap<>();
             for (int j = 0; j < i; ++j) {
@@ -21,7 +21,7 @@ public class T446 {
                 map[i].put(d, c1 + c2 + 1);
             }
         }
-        return res;
+        return (int) res;
     }
 
 }

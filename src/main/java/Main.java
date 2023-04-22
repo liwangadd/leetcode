@@ -1,28 +1,41 @@
 import utils.TreeNode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
 
-    private Map<Integer, Integer> val2Index;
+    private static class Tuple {
 
-    public TreeNode buildTree(int[] inorder, int[] postorder) {
-        val2Index = new HashMap<>();
-        for (int i = 0; i < inorder.length; i++) {
-            val2Index.put(inorder[i], i);
+        private TreeNode node;
+        private int index;
+
+        public Tuple(TreeNode node, int index) {
+            this.node = node;
+            this.index = index;
         }
-        return buildTree(inorder, 0, inorder.length, postorder, 0, postorder.length);
     }
 
-    private TreeNode buildTree(int[] inorder, int inStart, int inEnd, int[] postOrder, int postStart, int postEnd) {
-        if (inStart >= inEnd) return null;
-        int nodeVal = postOrder[postEnd - 1];
-        TreeNode node = new TreeNode(nodeVal);
-        int index = val2Index.get(nodeVal);
-        node.left = buildTree(inorder, inStart, index, postOrder, postStart, postStart + index - inStart);
-        node.right = buildTree(inorder, index + 1, inEnd, postOrder, postStart + index - inStart, postEnd - 1);
-        return node;
+    public int widthOfBinaryTree(TreeNode root) {
+        Queue<Tuple> queue = new LinkedList<>();
+        queue.add(new Tuple(root, 1));
+        int res = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size(), startIndex = queue.peek().index, endIndex = startIndex;
+            while (size-- > 0) {
+                Tuple tuple = queue.poll();
+                endIndex = tuple.index;
+                if (tuple.node.left != null) {
+                    queue.add(new Tuple(tuple.node.left, tuple.index * 2 - 1));
+                }
+                if (tuple.node.right != null) {
+                    queue.add(new Tuple(tuple.node.right, tuple.index * 2));
+                }
+            }
+            res = Math.max(res, endIndex - startIndex + 1);
+        }
+        return res;
     }
+
 }
 

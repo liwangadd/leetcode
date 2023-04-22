@@ -5,61 +5,33 @@ import utils.ListNode;
 public class T25 {
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null) {
-            return null;
-        }
-
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
-
-        ListNode prev = dummy;
-
-        while (prev != null) {
-            prev = reverseK(prev, k);
-        }
-
-        return dummy.next;
-    }
-
-    private ListNode reverseK(ListNode prev, int k) {
-        ListNode n1 = prev.next;
-
-        ListNode nk = prev;
-        for (int i = 0; i < k; i++) {
-            nk = nk.next;
-            if (nk == null) {
-                return null;
+        ListNode dummyHead = new ListNode(-1);
+        dummyHead.next = head;
+        ListNode node = dummyHead;
+        while (true) {
+            ListNode prevTail = node;
+            for (int i = 0; i < k && node != null; i++) {
+                node = node.next;
             }
+            if (node == null) break;
+            ListNode nextHead = node.next;
+            ListNode[] nodes = reverse(prevTail.next, node);
+            prevTail.next = nodes[0];
+            nodes[1].next = nextHead;
+            node = nodes[1];
         }
-
-        ListNode nkp1 = nk.next;
-
-        ListNode p = n1;
-        ListNode cur = n1.next;
-        while (p != nk) {
-            ListNode next = cur.next;
-            cur.next = p;
-            p = cur;
-            cur = next;
-        }
-
-        prev.next = nk;
-        n1.next = nkp1;
-
-        return n1;
+        return dummyHead.next;
     }
 
-//    public static void main(String[] args) {
-//        ListNode head = new ListNode(1);
-//        head.next = new ListNode(2);
-//        head.next.next = new ListNode(3);
-//        head.next.next.next = new ListNode(4);
-//        head.next.next.next.next = new ListNode(5);
-//        ListNode newHead = reverseKGroup(head, 4);
-//        while (newHead != null) {
-//            System.out.println(newHead.val);
-//            newHead = newHead.next;
-//        }
-//    }
+    private ListNode[] reverse(ListNode head, ListNode tail) {
+        ListNode node = head, prev = null, tailAfter = tail.next;
+        do {
+            ListNode next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
+        } while (node != tailAfter);
+        return new ListNode[]{tail, head};
+    }
 
 }

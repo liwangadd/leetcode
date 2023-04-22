@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.T700_T800;
 
 import utils.TreeNode;
 

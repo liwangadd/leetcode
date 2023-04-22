@@ -1,20 +1,18 @@
 package leetcode.T900_T1000;
 
-import java.util.Stack;
-
 public class T946 {
 
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        Stack<Integer> stack = new Stack<>();
-        int index1 = 0, index2 = 0;
-        while (index1 < popped.length) {
-            stack.push(pushed[index1++]);
-            while (!stack.isEmpty() && stack.peek().equals(popped[index2])) {
-                ++index2;
-                stack.pop();
+        int[] stack = new int[pushed.length];
+        int stackIndex = 0, popIndex = 0;
+        for (int ele : pushed) {
+            stack[stackIndex++] = ele;
+            while (stackIndex > 0 && stack[stackIndex - 1] == popped[popIndex]) {
+                --stackIndex;
+                ++popIndex;
             }
         }
-        return stack.isEmpty();
+        return stackIndex == 0;
     }
 
 }

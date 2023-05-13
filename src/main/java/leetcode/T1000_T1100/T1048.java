@@ -32,20 +32,17 @@ public class T1048 {
         boolean flag = true;
         for (; j < arr2.length; ++j) {
             if (arr1[i] == arr2[j]) ++i;
-            else if (flag) {
-                ++i;
-                --j;
-                flag = false;
+            else {
+                if (flag) {
+                    ++i;
+                    --j;
+                    flag = false;
+                } else {
+                    return false;
+                }
             }
         }
         return (i + (flag ? 1 : 0) == arr1.length) && j == arr2.length;
-    }
-
-    public static void main(String[] args) {
-//        boolean res = new T1048().isPredecessor("bcd".toCharArray(), "bd".toCharArray());
-//        System.out.println(res);
-        int res = new T1048().longestStrChain(new String[]{"a", "b", "ab", "bac"});
-        System.out.println(res);
     }
 
 }

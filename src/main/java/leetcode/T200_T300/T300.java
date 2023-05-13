@@ -22,19 +22,25 @@ public class T300 {
     }
 
     public int lengthOfLIS2(int[] nums) {
-        int n = nums.length;
-        int[] dp = new int[n];
-        int len = 0;
+        int len = nums.length, monoLen = 0;
+        int[] mono = new int[len];
         for (int num : nums) {
-            int index = Arrays.binarySearch(dp, 0, len, num);
-            if (index < 0)
-                index = -index - 1;
-            if (index == len) {
-                len++;
+            int left = 0, right = monoLen;
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                if (mono[mid] == num) {
+                    left = mid;
+                    break;
+                } else if (mono[mid] < num) left = mid + 1;
+                else right = mid;
             }
-            dp[index] = num;
+            if (left == monoLen) ++monoLen;
+            mono[left] = num;
         }
-        return len;
+        return monoLen;
     }
 
+    public static void main(String[] args) {
+        new T300().lengthOfLIS2(new int[]{3, 5, 6, 2, 5, 4, 19, 5, 6, 7, 12});
+    }
 }

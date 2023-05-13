@@ -1,43 +1,20 @@
 package leetcode.T1_T100;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class T54 {
 
     public static List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> res = new LinkedList<>();
-        if (matrix.length == 0) return res;
-
-        int endRow = matrix.length - 1, startRow = 0;
-        int endCol = matrix[0].length - 1, startCol = 0;
-        while (endRow >= startRow && endCol >= startCol) {
-            System.out.println(startRow + " " + endRow + " " + startCol + " " + endCol);
-            for (int i = startCol; i <= endCol; ++i) res.add(matrix[startRow][i]);
-            for (int i = startRow + 1; i < endRow; ++i) res.add(matrix[i][endCol]);
-            if (startRow < endRow)
-                for (int i = endCol; i >= startCol; --i) res.add(matrix[endRow][i]);
-            if (startCol < endCol)
-                for (int i = endRow - 1; i > startRow; --i) res.add(matrix[i][startCol]);
-            ++startRow;
-            --endRow;
-            ++startCol;
-            --endCol;
+        List<Integer> res = new ArrayList<>();
+        int top = 0, bottom = matrix.length - 1, left = 0, right = matrix[0].length - 1;
+        for (; top <= bottom && left <= right; ++top, --bottom, ++left, --right) {
+            for (int i = left; i <= right; ++i) res.add(matrix[top][i]);
+            for (int i = top + 1; i <= bottom; ++i) res.add(matrix[i][right]);
+            if (top < bottom) for (int i = right - 1; i >= left; --i) res.add(matrix[bottom][i]);
+            if (left < right) for (int i = bottom - 1; i > top; --i) res.add(matrix[i][left]);
         }
         return res;
-    }
-
-    public static void main(String[] args) {
-        int[][] matrix = new int[][]{
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9},
-                {10, 11, 12}
-        };
-        List<Integer> res = spiralOrder(matrix);
-        for (Integer re : res) {
-            System.out.print(re + " ");
-        }
     }
 
 }

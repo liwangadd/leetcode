@@ -1,35 +1,33 @@
 package leetcode.T700_T800;
 
 import java.util.PriorityQueue;
-import java.util.TreeMap;
+import java.util.Queue;
 
 public class T703 {
 
     class KthLargest {
 
-        private PriorityQueue<Integer> minHeap;
+        private Queue<Integer> minHeap;
         private int heapSize;
 
         public KthLargest(int k, int[] nums) {
-            this.minHeap = new PriorityQueue<>(k);
             this.heapSize = k;
+            this.minHeap = new PriorityQueue<>();
             for (int num : nums) {
-                addToHeap(num);
-            }
-        }
-
-        private void addToHeap(int num) {
-            if (minHeap.size() >= heapSize && num > minHeap.peek()) {
-                minHeap.poll();
-                minHeap.add(num);
-            } else if (minHeap.size() < heapSize) {
-                minHeap.add(num);
+                addHeap(num);
             }
         }
 
         public int add(int val) {
-            addToHeap(val);
+            addHeap(val);
             return minHeap.peek();
+        }
+
+        private void addHeap(int num) {
+            minHeap.add(num);
+            while (minHeap.size() > heapSize) {
+                minHeap.poll();
+            }
         }
     }
 

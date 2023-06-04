@@ -14,8 +14,8 @@ public class T347 {
         }
     }
 
-    public List<Integer> topKFrequent(int[] nums, int k) {
-        List<Integer> res = new LinkedList<>();
+    public int[] topKFrequent(int[] nums, int k) {
+        int[] res = new int[k];
         if (nums == null || nums.length == 0) return res;
         Map<Integer, Integer> map = new HashMap<>();
         for (int num : nums) {
@@ -33,8 +33,9 @@ public class T347 {
                 priorityQueue.add(node);
             }
         }
+        int index = 0;
         for (Node node : priorityQueue) {
-            res.add(node.num);
+            res[index++] = node.num;
         }
         return res;
     }

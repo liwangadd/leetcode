@@ -5,55 +5,54 @@ import java.util.Queue;
 
 public class T934 {
 
-    public int shortestBridge(int[][] A) {
-        int m = A.length, n = A[0].length;
-        boolean[][] visited = new boolean[m][n];
-        int[][] dirs = new int[][]{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-        Queue<int[]> q = new LinkedList<>();
-        boolean found = false;
-        // 1. dfs to find an island, mark it in `visited`
-        for (int i = 0; i < m; i++) {
-            if (found) {
-                break;
-            }
-            for (int j = 0; j < n; j++) {
-                if (A[i][j] == 1) {
-                    dfs(A, visited, q, i, j, dirs);
-                    found = true;
+    private static final int[][] MOVES = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    private int rows, cols;
+
+    public int shortestBridge(int[][] grid) {
+        this.rows = grid.length;
+        this.cols = grid[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+        boolean founded = false;
+        for (int i = 0; i < rows; ++i) {
+            if (founded) break;
+            for (int j = 0; j < cols; ++j) {
+                if (grid[i][j] == 1) {
+                    founded = true;
+                    dfs(grid, i, j, queue);
                     break;
                 }
             }
         }
-        // 2. bfs to expand this island
         int step = 0;
-        while (!q.isEmpty()) {
-            int size = q.size();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
             while (size-- > 0) {
-                int[] cur = q.poll();
-                for (int[] dir : dirs) {
-                    int i = cur[0] + dir[0];
-                    int j = cur[1] + dir[1];
-                    if (i >= 0 && j >= 0 && i < m && j < n && !visited[i][j]) {
-                        if (A[i][j] == 1) {
-                            return step;
+                int[] pos = queue.poll();
+                for (int[] move : MOVES) {
+                    int newX = pos[0] + move[0], newY = pos[1] + move[1];
+                    if (newX >= 0 && newX < rows && newY >= 0 && newY < cols) {
+                        if (grid[newX][newY] == 1) return step;
+                        else if (grid[newX][newY] == 0) {
+                            grid[newX][newY] = -1;
+                            queue.add(new int[]{newX, newY});
                         }
-                        q.offer(new int[]{i, j});
-                        visited[i][j] = true;
                     }
                 }
             }
-            step++;
+            ++step;
         }
-        return -1;
+        return step;
     }
-    private void dfs(int[][] A, boolean[][] visited, Queue<int[]> q, int i, int j, int[][] dirs) {
-        if (i < 0 || j < 0 || i >= A.length || j >= A[0].length || visited[i][j] || A[i][j] == 0) {
-            return;
-        }
-        visited[i][j] = true;
-        q.offer(new int[]{i, j});
-        for (int[] dir : dirs) {
-            dfs(A, visited, q, i + dir[0], j + dir[1], dirs);
+
+    private void dfs(int[][] grid, int i, int j, Queue<int[]> queue) {
+        queue.add(new int[]{i, j});
+        grid[i][j] = -1;
+        for (int[] move : MOVES) {
+            int newX = i + move[0], newY = j + move[1];
+            if (newX >= 0 && newX < rows && newY >= 0 && newY < cols && grid[newX][newY] == 1)
+                dfs(grid, newX, newY, queue);
         }
     }
+
 }

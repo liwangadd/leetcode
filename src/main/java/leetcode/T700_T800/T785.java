@@ -6,22 +6,20 @@ import java.util.Map;
 public class T785 {
 
     public boolean isBipartite(int[][] graph) {
-        Map<Integer, Boolean> map = new HashMap<>();
+        int[] colors = new int[graph.length];
         for (int i = 0; i < graph.length; i++) {
-            if (!map.containsKey(i) && !helper(i, graph, map, true)) {
+            if (colors[i] == 0 && !helper(i, graph, colors, 1)) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean helper(int node, int[][] graph, Map<Integer, Boolean> map, boolean color) {
-        if (map.containsKey(node)) {
-            return map.get(node) == color;
-        }
-        map.put(node, color);
+    private boolean helper(int node, int[][] graph, int[] colors, int color) {
+        if (colors[node] != 0) return colors[node] == color;
+        colors[node] = color;
         for (int neighbor : graph[node]) {
-            if (!helper(neighbor, graph, map, !color)) {
+            if (!helper(neighbor, graph, colors, color == 1 ? 2 : 1)) {
                 return false;
             }
         }

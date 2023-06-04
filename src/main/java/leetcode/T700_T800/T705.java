@@ -1,47 +1,34 @@
 package leetcode.T700_T800;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.ListIterator;
-
 public class T705 {
 
-    private static final int BASE = 769;
-    private LinkedList<Integer>[] data;
+    int num[];
 
     public T705() {
-        this.data = new LinkedList[BASE];
+        num = new int[31251];
     }
 
     public void add(int key) {
-        int index = key % BASE;
-        if (data[index] == null) data[index] = new LinkedList<>();
-        if(!contains(key)) data[index].add(key);
+        num[getIdx(key)]|=getMask(key);
     }
 
     public void remove(int key) {
-        int index = key % BASE;
-        if (data[index] != null) {
-            ListIterator<Integer> iter = data[index].listIterator();
-            while (iter.hasNext()) {
-                if (key == iter.next()) {
-                    iter.remove();
-                    break;
-                }
-            }
-        }
+        num[getIdx(key)] &= (~getMask(key));
     }
 
     public boolean contains(int key) {
-        int index = key % BASE;
-        if (data[index] != null) {
-            for (Integer integer : data[index]) {
-                if (key == integer) {
-                    return true;
-                }
-            }
-        }
-        return false;
+        return (num[getIdx(key)]&getMask(key))!=0;
+    }
+
+    private int getIdx(int key)
+    {
+        return (key/32);
+    }
+
+    private int getMask(int key)
+    {
+        key%=32;
+        return (1<<key);
     }
 
 }

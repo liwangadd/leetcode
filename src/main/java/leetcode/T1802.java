@@ -3,25 +3,24 @@ package leetcode;
 public class T1802 {
 
     public int maxValue(int n, int index, int maxSum) {
-        long start = 1, end = maxSum, res = 0;
-        while (start <= end) {
-            long mid = start + (end - start)/2;
-            long leftSum = sum(Math.min(index, mid - 1), mid);
-            long rightSum =  sum(Math.min(n - index - 1, mid - 1), mid);
-            leftSum += Math.max(index - mid + 1, 0);
-            rightSum += Math.max(n - index - 1 - mid + 1, 0);
-            if (leftSum + rightSum + mid<= maxSum) {
+        int left = 1, right = maxSum, res = 0;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            long leftSum = sum(index, mid);
+            long rightSum = sum(n - index - 1, mid);
+            if (leftSum + rightSum + mid <= maxSum) {
                 res = Math.max(res, mid);
-                start = mid + 1;
+                left = mid + 1;
             } else {
-                end = mid - 1;
+                right = mid - 1;
             }
         }
-        return (int)res;
+        return res;
     }
 
-    private long sum(long i, long mid) {
-        return mid * i - (i * (i + 1))/2;
+    private long sum(long count, long maxVal) {
+        long zeroCount = Math.max(0, count - maxVal + 1);
+        long nonZeroCount = count - zeroCount;
+        return nonZeroCount * maxVal - (nonZeroCount + 1) * nonZeroCount / 2 + zeroCount;
     }
-
 }
